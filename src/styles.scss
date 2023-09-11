@@ -1,2 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background-image: linear-gradient(
+    to bottom,
+    #2e3440 0%,
+    #2e3440 12%,
+    #00d87e 12%,
+    #00d8d8 100%
+  );
+  height: 100%;
+  color: #2f3435;
+  font-family: "Fira Code", monospace;
+}
+
+a {
+  text-decoration: none;
+  color: #2f3435;
+}
