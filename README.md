@@ -10,14 +10,14 @@ Segue abaixo uma prévia da aplicação em um IPhone 12 Pro Max e um S21 Ultra
 
 <h2 align="center">IPhone</h2>
 <p align="center">
-	<img style="margin-right: 3rem;" src="./src/assets/images/presentation/iphone-p1.png">
-	<img src="./src/assets/images/presentation/iphone-p2.png">
+	<img width="400" style="margin-right: 3rem;" src="./src/assets/images/presentation/iphone-p1.png">
+	<img width="400" src="./src/assets/images/presentation/iphone-p2.png">
 </p>
 
 <h2 align="center">Android</h2>
 <p align="center">
-	<img style="margin-right: 3rem;" src="./src/assets/images/presentation/android-p1.png">
-	<img src="./src/assets/images/presentation/android-p2.png">
+	<img width="400" style="margin-right: 3rem;" src="./src/assets/images/presentation/android-p1.png">
+	<img width="400" src="./src/assets/images/presentation/android-p2.png">
 </p>
 
 ## Como executar esta aplicação?
