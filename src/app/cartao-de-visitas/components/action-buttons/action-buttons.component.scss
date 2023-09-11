@@ -1,0 +1,35 @@
+.telefone{
+	height: 16vw;
+}
+
+.whatsapp{
+	height: 15vw;
+}
+
+.email{
+	height: 16vw;
+}
+
+.download{
+	height: 14vw;
+	margin-top: 1vw;
+	border-radius: 19%;
+	background-color: #2c6de5af;
+}
+
+.button{
+	height: 15vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #2e34403d;
+	border-radius: 50px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+.actionButtons{
+	margin-right: 2vh ;
+}
