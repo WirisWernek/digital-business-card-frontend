@@ -1,22 +1,9 @@
 <nav class="my-2">
 	<ul class="row justify-content-center actionButtons">
-		<li class="col-3">
-			<a id="whatsappButton" target="_blank">
-				<img src="../../../../assets/icons/whatsapp.png" class="whatsapp">
+		<li *ngFor="let actionButton of actionsButtons" class="col-3">
+			<a id="{{actionButton.idStyle}}" target="_blank">
+				<img src="{{actionButton.imagem}}" [ngClass]="actionButton.styles" alt="{{actionButton.descricao}}">
 			</a>
-		</li>
-		<li class="col-3">
-			<a id="emailButton" target="_blank">
-				<img src="../../../../assets/icons/email.png" class="email" srcset="">
-			</a>
-		</li>
-		<li class="col-3">
-			<a id="telefoneButton" target="_blank">
-				<img src="../../../../assets/icons/telefone.png" class="telefone" srcset="">
-			</a>
-		</li>
-		<li class="col-3">
-			<img onclick="window.print()" src="../../../../assets/icons/download.png" class="download" srcset="">
 		</li>
 	</ul>
 </nav>
