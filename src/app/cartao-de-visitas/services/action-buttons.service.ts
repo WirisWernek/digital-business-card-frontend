@@ -14,7 +14,7 @@ export class ActionButtonsService {
         '',
         '../../../../assets/icons/whatsapp.png',
         'Meu Canal No YouTube',
-        'whatsappButton',
+        'whatsapp',
         ['whatsapp']
       )
     );
@@ -23,7 +23,7 @@ export class ActionButtonsService {
         '',
         '../../../../assets/icons/email.png',
         'Meu Canal No YouTube',
-        'emailButton',
+        'email',
         ['email']
       )
     );
@@ -32,7 +32,7 @@ export class ActionButtonsService {
         '',
         '../../../../assets/icons/telefone.png',
         'Meu Canal No YouTube',
-        'telefoneButton',
+        'telefone',
         ['telefone']
       )
     );
@@ -41,7 +41,7 @@ export class ActionButtonsService {
         '',
         '../../../../assets/icons/download.png',
         'Meu Canal No YouTube',
-        'downloadButton',
+        'download',
         ['download']
       )
     );
