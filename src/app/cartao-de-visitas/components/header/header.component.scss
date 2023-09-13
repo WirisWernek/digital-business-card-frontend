@@ -13,7 +13,8 @@ header{
 	width: 22ch;
 	white-space: nowrap;
 	overflow: hidden;
-	animation-composition:  blinking 0.6s infinite, typing 2s steps(22);
+	animation:  blinking 0.6s infinite, typing 2s steps(22);
+	-webkit-animation:  blinking 0.6s infinite, typing 2s steps(22);
 }
 
 @keyframes typing{
