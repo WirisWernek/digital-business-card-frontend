@@ -56,13 +56,6 @@ export class ListLinksService {
         ['col-11', 'button']
       )
     );
-    listLinks.push(
-      new LinkModel().build(
-        '../../../../assets/files/Wiris_Rafael_Januario_Wernek.vcf',
-        'Salve meu Contato',
-        ['col-11', 'button']
-      )
-    );
 
     return listLinks;
   }

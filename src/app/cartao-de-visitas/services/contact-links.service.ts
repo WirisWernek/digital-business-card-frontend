@@ -21,7 +21,7 @@ export class ContactLinksService {
     this.EMAIL = 'rafaeljwerneck43@gmail.com';
     this.PHONE_NUMBER = '+5528999814672';
     this.WHATSAPP_NUMBER = '5528999814672';
-    this.DOWNLOAD = '';
+    this.DOWNLOAD = '../../../assets/files/qr-code.png';
     this.MESSAGE_DEFAULT =
       'Olá Wiris, estou entrando em contato pelo seu Cartão de Visita Virtual e gostaria de conhecer mais do seu trabalho, podemos conversar sobre?';
 
