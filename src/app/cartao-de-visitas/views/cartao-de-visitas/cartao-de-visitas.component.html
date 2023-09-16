@@ -1,6 +1,8 @@
-<app-header></app-header>
+<app-header (emmitTypeVisible)="reciverResponse($event)"></app-header>
 <hr>
+<div *ngIf="typeVisible == '1'"></div>
 <app-action-buttons></app-action-buttons>
 <hr>
 <app-list-links></app-list-links>
+<div *ngIf="typeVisible == '2'"></div>
 <app-footer></app-footer>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,17 +6,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  @Output() emmitTypeVisible = new EventEmitter<string>();
   subtitle: string;
   index: number = -1;
 
   text: string = 'Backend Web Developer';
   textArray: Array<string> = this.text.split('');
+  ultimaAcao: string = '1';
 
   constructor() {
     this.subtitle = '';
   }
   ngOnInit(): void {
     this.loadSubtitleWithEffect();
+  }
+
+  changeOption() {
+	if(this.ultimaAcao == '1'){
+		this.ultimaAcao = '2';
+	}else{
+		this.ultimaAcao = '1';
+	}
+    console.log('ok');
+    this.emmitTypeVisible.emit(this.ultimaAcao);
   }
 
   loadSubtitleWithEffect() {
