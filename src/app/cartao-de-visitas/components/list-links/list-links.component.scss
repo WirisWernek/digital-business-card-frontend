@@ -11,3 +11,10 @@
 	margin: 0 !important;
 	padding: 0 !important;
 }
+
+@media (min-width: 700px) {
+	.button{
+		height: 4vw;
+		width: 55%;
+	}
+}
