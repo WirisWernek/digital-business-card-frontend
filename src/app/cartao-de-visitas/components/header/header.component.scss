@@ -36,6 +36,16 @@ header {
   }
 
   header {
-    padding-top: 1%;
+    padding-top: 5%;
   }
 }
+
+@media (min-width: 880px) {
+	.profile-image {
+	  height: 22vw;
+	}
+  
+	header {
+	  padding-top: 2%;
+	}
+  }

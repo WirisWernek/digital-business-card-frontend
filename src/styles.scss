@@ -1,16 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
-html, body {
-	min-height: 100%;
-	min-width: 100%;
+html,
+body {
+  min-height: 100%;
+  min-width: 100%;
 }
 
 body {
   background-image: linear-gradient(
     to bottom,
     #2e3440 0%,
-    #2e3440 12%,
-    #00d87e 12%,
+    #2e3440 10%,
+    #00d87e 10%,
     #00d8d8 100%
   );
   font-family: "Fira Code", monospace;
@@ -21,7 +22,14 @@ a {
   color: #2f3435;
 }
 
-
-
-
-  
+@media (min-width: 700px) {
+  body {
+    background-image: linear-gradient(
+      to bottom,
+      #2e3440 0%,
+      #2e3440 12%,
+      #00d87e 12%,
+      #00d8d8 100%
+    );
+  }
+}
