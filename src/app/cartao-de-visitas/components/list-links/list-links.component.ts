@@ -14,25 +14,30 @@ export class ListLinksComponent implements OnInit {
   listLinks: Array<LinkModel>;
   optionalButtons: OptionalButtons;
 
-
   constructor(
     private listLinkService: ListLinksService,
     private optionalButtonsService: OptionalButtonsService,
     private clipboardService: ClipboardService
   ) {
-	this.listLinks = new Array<LinkModel>();
-	this.optionalButtons = new OptionalButtons();
+    this.listLinks = new Array<LinkModel>();
+    this.optionalButtons = new OptionalButtons();
   }
 
   ngOnInit(): void {
     this.listLinks = this.listLinkService.getAllLinks();
-	this.optionalButtons= this.optionalButtonsService.getAllOptionButtons();
+    this.optionalButtons = this.optionalButtonsService.getAllOptionButtons();
   }
 
   copiarChavePix() {
     this.clipboardService.copy(this.optionalButtons.chavePix);
     alert('Chave copiada para sua area de transferência');
   }
-  avaliarTrabalho() {}
-  incricaoNewsletter() {}
+  
+  avaliarTrabalho() {
+	console.log("Pois é não tem ainda, Deixe seu F no console!");
+  }
+  
+  inscricaoNewsletter() {
+	console.log("Pois é não tem ainda, Deixe seu F no console!");
+  }
 }
