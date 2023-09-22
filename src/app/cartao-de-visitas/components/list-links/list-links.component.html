@@ -3,7 +3,22 @@
 </section>
 
 <section class="row justify-content-center align-items-center g-2 text-center mt-2">
-	<a *ngFor="let link of lisLinks" [ngClass]="link.styles" href="{{link.link}}" target="_blank">
+	<a *ngFor="let link of listLinks" [ngClass]="link.styles" href="{{link.link}}" target="_blank">
 		<span class="">{{link.texto}}</span>
 	</a>
+
+	<!-- Botões Opcionais -->
+	<div *ngIf="optionalButtons.pixEnable" class="col-11 button" (click)="copiarChavePix()">
+		<span>Copiar chave pix</span>
+	</div>
+
+	<div *ngIf="optionalButtons.avaliacaoEnable" class="col-11 button" (click)="avaliarTrabalho()">
+		<span>Avalie meu trabalho</span>
+	</div>
+
+	<div *ngIf="optionalButtons.newsletterEnable" class="col-11 button" (click)="incricaoNewsletter()">
+		<span>Se inscreva em nossa newsletter</span>
+	</div>
+
+
 </section>
