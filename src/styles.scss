@@ -9,9 +9,7 @@ body {
 body {
   background-image: linear-gradient(
     to bottom,
-    #2e3440 0%,
-    #2e3440 10%,
-    #00d87e 10%,
+    #00d87e 0%,
     #00d8d8 100%
   );
   font-family: "Fira Code", monospace;
@@ -23,13 +21,5 @@ a {
 }
 
 @media (min-width: 700px) {
-  body {
-    background-image: linear-gradient(
-      to bottom,
-      #2e3440 0%,
-      #2e3440 12%,
-      #00d87e 12%,
-      #00d8d8 100%
-    );
-  }
+
 }
