@@ -1,9 +1,7 @@
-header {
-  padding-top: 12%;
-}
 .profile-image {
   border-radius: 100% !important ;
-  height: 40vw;
+  height: 10rem;
+	margin-top: -5rem;
 }
 
 .subtitle {
@@ -32,20 +30,7 @@ header {
 
 @media (min-width: 700px) {
   .profile-image {
-    height: 22vw;
-  }
-
-  header {
-    padding-top: 5%;
+    height: 18rem;
+	margin-top: -9rem;
   }
 }
-
-@media (min-width: 880px) {
-	.profile-image {
-	  height: 22vw;
-	}
-  
-	header {
-	  padding-top: 2%;
-	}
-  }
