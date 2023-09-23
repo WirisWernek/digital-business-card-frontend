@@ -29,15 +29,14 @@ export class ListLinksComponent implements OnInit {
   }
 
   copiarChavePix() {
-    this.clipboardService.copy(this.optionalButtons.chavePix);
-    alert('Chave copiada para sua area de transferência');
+    return this.clipboardService.copy(this.optionalButtons.chavePix);
   }
-  
+
   avaliarTrabalho() {
-	console.log("Pois é não tem ainda, Deixe seu F no console!");
+    console.log('Pois é não tem ainda, Deixe seu F no console!');
   }
-  
+
   inscricaoNewsletter() {
-	console.log("Pois é não tem ainda, Deixe seu F no console!");
+    console.log('Pois é não tem ainda, Deixe seu F no console!');
   }
 }
