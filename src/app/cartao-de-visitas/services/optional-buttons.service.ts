@@ -14,9 +14,9 @@ export class OptionalButtonsService {
   getAllOptionButtons() {
     this.optionalButtons.build(
       true,
-      'Por enquanto não tem e é sobre isso!',
-      true,
-      true
+      '7733cb5d-2e77-40ff-9b44-f3bf578cf988',
+      false,
+      false
     );
     return this.optionalButtons;
   }
