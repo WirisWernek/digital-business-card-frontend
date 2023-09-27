@@ -4,7 +4,7 @@ import { LinkModel } from '../models/Link.model';
 @Injectable({
   providedIn: 'root',
 })
-export class ListLinksService {
+export class ListSocialLinksService {
   getAllLinks() {
     const listLinks = new Array<LinkModel>();
     listLinks.push(

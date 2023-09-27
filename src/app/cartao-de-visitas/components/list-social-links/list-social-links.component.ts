@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ClipboardService } from 'ngx-clipboard';
 import { LinkModel } from '../../models/Link.model';
 import { OptionalButtons } from '../../models/OptionalButtons.model';
-import { ListLinksService } from '../../services/list-links.service';
+import { ListSocialLinksService } from '../../services/list-social-links.service';
 import { OptionalButtonsService } from '../../services/optional-buttons.service';
 
 @Component({
-  selector: 'app-list-links',
-  templateUrl: './list-links.component.html',
-  styleUrls: ['./list-links.component.scss'],
+  selector: 'app-list-social-links',
+  templateUrl: './list-social-links.component.html',
+  styleUrls: ['./list-social-links.component.scss'],
 })
-export class ListLinksComponent implements OnInit {
+export class ListSocialLinksComponent implements OnInit {
   listLinks: Array<LinkModel>;
   optionalButtons: OptionalButtons;
 
   constructor(
-    private listLinkService: ListLinksService,
+    private listSocialLinkService: ListSocialLinksService,
     private optionalButtonsService: OptionalButtonsService,
     private clipboardService: ClipboardService
   ) {
@@ -24,7 +24,7 @@ export class ListLinksComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listLinks = this.listLinkService.getAllLinks();
+    this.listLinks = this.listSocialLinkService.getAllLinks();
     this.optionalButtons = this.optionalButtonsService.getAllOptionButtons();
   }
 
