@@ -1,0 +1,9 @@
+<section class="row justify-content-center text-center ">
+	<h4 class="col">Veja meus Projetos</h4>
+</section>
+
+<section class="row justify-content-center align-items-center g-2 text-center mt-2">
+	<a *ngFor="let link of listLinks" [ngClass]="link.styles" href="{{link.link}}" target="_blank">
+		<span class="">{{link.texto}}</span>
+	</a>
+</section>

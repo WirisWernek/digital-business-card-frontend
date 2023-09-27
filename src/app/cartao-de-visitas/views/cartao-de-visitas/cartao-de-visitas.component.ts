@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class CartaoDeVisitasComponent {
   typeVisible: string = '1';
+
   reciverResponse(response: string) {
-    console.log('Foi emitido e evento e chegou ao componente pai os dados >>>> {}', response);
+    console.log(
+      'Foi emitido e evento e chegou ao componente pai os dados >>>> {}',
+      response
+    );
     this.typeVisible = response;
+	console.log(this.typeVisible);
   }
 }
