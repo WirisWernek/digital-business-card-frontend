@@ -18,7 +18,7 @@ export class ListProjectsLinksService {
     );
     listLinks.push(
       new LinkModel().build(
-        'https://dcb-wiriswernek.vercel.app',
+        'https://dbc-wiriswernek.vercel.app',
         'Cartão de Visitas Digital',
         ['col-11', 'button']
       )
