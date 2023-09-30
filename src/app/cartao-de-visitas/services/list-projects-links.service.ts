@@ -46,56 +46,56 @@ export class ListProjectsLinksService {
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.github.io/GeradorDeSenhas/',
+        'https://gerador-de-senhas.wiriswernek.vercel.app',
         'Gerador de Senhas',
         ['col-11', 'button']
       )
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.github.io/ProjetoHotelParaiso/',
+        'https://projeto-hotel-paraiso.wiriswernek.vercel.app',
         'Projeto Hotel Paraíso',
         ['col-11', 'button']
       )
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.github.io/Projeto-Anna-Bella/',
+        'https://projeto-anna-bella.wiriswernek.vercel.app',
         'Projeto Anna Bella',
         ['col-11', 'button']
       )
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.github.io/UNES/',
+        'https://unes.wiriswernek.vercel.app',
         'Projeto UNES',
         ['col-11', 'button']
       )
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.github.io/instagram-clone/',
+        'https://instagram-clone.wiriswernek.vercel.app',
         'Instagram Login Clone',
         ['col-11', 'button']
       )
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.github.io/Netflix-clone/',
+        'https://netflix-clone.wiriswernek.vercel.app',
         'Netflix Clone',
         ['col-11', 'button']
       )
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.github.io/snake-the-game/',
+        'https://snake-game.wiriswernek.vercel.app',
         'Snake Game',
         ['col-11', 'button']
       )
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.github.io/jogo-da-velha/',
+        'https://jogo-da-velha.wiriswernek.vercel.app',
         'Jogo da Velha',
         ['col-11', 'button']
       )
