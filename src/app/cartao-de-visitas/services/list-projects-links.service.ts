@@ -67,27 +67,6 @@ export class ListProjectsLinksService {
     );
     listLinks.push(
       new LinkModel().build(
-        'https://unes.wiriswernek.vercel.app',
-        'Projeto UNES',
-        ['col-11', 'button']
-      )
-    );
-    listLinks.push(
-      new LinkModel().build(
-        'https://instagram-clone.wiriswernek.vercel.app',
-        'Instagram Login Clone',
-        ['col-11', 'button']
-      )
-    );
-    listLinks.push(
-      new LinkModel().build(
-        'https://netflix-clone.wiriswernek.vercel.app',
-        'Netflix Clone',
-        ['col-11', 'button']
-      )
-    );
-    listLinks.push(
-      new LinkModel().build(
         'https://snake-game.wiriswernek.vercel.app',
         'Snake Game',
         ['col-11', 'button']
