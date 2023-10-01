@@ -8,11 +8,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() emmitTypeVisible = new EventEmitter<string>();
   subtitle: string;
-  index: number = -1;
+  index = -1;
 
-  text: string = 'Backend Web Developer';
+  text = 'Backend Web Developer';
   textArray: Array<string> = this.text.split('');
-  ultimaAcao: string = '1';
+  ultimaAcao = '1';
 
   constructor() {
     this.subtitle = '';

@@ -5,7 +5,6 @@ import { ActionButtonModel } from '../models/ActionButton.model';
   providedIn: 'root',
 })
 export class ActionButtonsService {
-  constructor() {}
 
   getAllActionsButtons() {
     const listActionsButtons = new Array<ActionButtonModel>();

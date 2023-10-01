@@ -5,7 +5,6 @@ import { LinkModel } from '../models/Link.model';
   providedIn: 'root',
 })
 export class ListProjectsLinksService {
-  constructor() {}
 
   getAllLinks() {
     const listLinks = new Array<LinkModel>();

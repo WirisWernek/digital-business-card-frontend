@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LinkModel } from '../../models/Link.model';
 import { ListProjectsLinksService } from '../../services/list-projects-links.service';
 
@@ -7,7 +7,7 @@ import { ListProjectsLinksService } from '../../services/list-projects-links.ser
   templateUrl: './list-project-links.component.html',
   styleUrls: ['./list-project-links.component.scss'],
 })
-export class ListProjectsLinksComponent {
+export class ListProjectsLinksComponent implements OnInit{
   listLinks: Array<LinkModel>;
 
   constructor(

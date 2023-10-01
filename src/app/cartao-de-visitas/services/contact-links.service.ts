@@ -5,11 +5,11 @@ import { ContactLinkModel } from '../models/ContactLink.model';
   providedIn: 'root',
 })
 export class ContactLinksService {
-  PHONE_NUMBER: string = '';
-  WHATSAPP_NUMBER: string = '';
-  EMAIL: string = '';
-  DOWNLOAD: string = '';
-  MESSAGE_DEFAULT: string = '';
+  PHONE_NUMBER = '';
+  WHATSAPP_NUMBER = '';
+  EMAIL = '';
+  DOWNLOAD = '';
+  MESSAGE_DEFAULT = '';
 
   contactLink: ContactLinkModel;
 
@@ -21,8 +21,7 @@ export class ContactLinksService {
     this.EMAIL = 'rafaeljwerneck43@gmail.com';
     this.PHONE_NUMBER = '+5528999814672';
     this.WHATSAPP_NUMBER = '5528999814672';
-	this.DOWNLOAD = "../../../assets/files/cartao-de-visitas-interativo.pdf"
-    // this.DOWNLOAD = '../../../assets/files/qr-code.png';
+	this.DOWNLOAD = "../../../assets/files/cartao-de-visitas-interativo.pdf";
     this.MESSAGE_DEFAULT =
       'Olá Wiris, estou entrando em contato pelo seu Cartão de Visita Virtual e gostaria de conhecer mais do seu trabalho, podemos conversar sobre?';
 
@@ -39,7 +38,7 @@ export class ContactLinksService {
   }
 
   carregarLinkWhatsApp() {
-    let userAgent = window.navigator.userAgent;
+    const userAgent = window.navigator.userAgent;
 
     if (
       userAgent.includes('iPhone') ||

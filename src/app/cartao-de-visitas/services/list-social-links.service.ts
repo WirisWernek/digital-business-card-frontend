@@ -56,13 +56,13 @@ export class ListSocialLinksService {
         ['col-11', 'button']
       )
     );
-	listLinks.push(
-		new LinkModel().build(
-		  'https://wiriswernek.vercel.app',
-		  'Visite meu Portifólio',
-		  ['col-11', 'button']
-		)
-	  );
+    listLinks.push(
+      new LinkModel().build(
+        'https://wiriswernek.vercel.app',
+        'Visite meu Portifólio',
+        ['col-11', 'button']
+      )
+    );
 
     return listLinks;
   }
