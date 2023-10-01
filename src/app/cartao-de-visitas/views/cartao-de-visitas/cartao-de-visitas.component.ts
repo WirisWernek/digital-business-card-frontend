@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./cartao-de-visitas.component.scss'],
 })
 export class CartaoDeVisitasComponent {
-  typeVisible: string = '1';
+  typeVisible = '1';
 
   reciverResponse(response: string) {
     console.log(
