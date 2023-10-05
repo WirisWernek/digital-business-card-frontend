@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 	{
-		path: 'home',
+		path: '',
 		title: 'Wiris Wernek',
 		loadChildren: () => import('./cartao-de-visitas/cartao-de-visitas.module').then(m => m.CartaoDeVisitasModule)
 	},	
 	{ 	path: '**', 
-		redirectTo: "home" 
+		redirectTo: "" 
 	}
 ];
 
