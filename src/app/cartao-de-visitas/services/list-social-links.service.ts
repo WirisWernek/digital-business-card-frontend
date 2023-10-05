@@ -58,7 +58,7 @@ export class ListSocialLinksService {
     );
     listLinks.push(
       new LinkModel().build(
-        'https://wiriswernek.vercel.app',
+        'https://home-wiriswernek.vercel.app',
         'Visite meu Portifólio',
         ['col-11', 'button']
       )

@@ -8,15 +8,15 @@
 	</a>
 
 	<!-- Botões Opcionais -->
-	<div *ngIf="optionalButtons.pixEnable" class="col-11 button" (click)="copiarChavePix()">
+	<div *ngIf="optionalButtons.pixEnable" class="col-11 button" (click)="copiarChavePix()" (keydown)="copiarChavePix()">
 		<span>Copiar chave pix</span>
 	</div>
 
-	<div *ngIf="optionalButtons.avaliacaoEnable" class="col-11 button" (click)="avaliarTrabalho()">
+	<div *ngIf="optionalButtons.avaliacaoEnable" class="col-11 button" (click)="avaliarTrabalho()" (keydown)="avaliarTrabalho()">
 		<span>Avalie meu trabalho</span>
 	</div>
 
-	<div *ngIf="optionalButtons.newsletterEnable" class="col-11 button" (click)="inscricaoNewsletter()">
+	<div *ngIf="optionalButtons.newsletterEnable" class="col-11 button" (click)="inscricaoNewsletter()" (keydown)="inscricaoNewsletter()">
 		<span>Se inscreva em nossa newsletter</span>
 	</div>
 </section>
