@@ -12,7 +12,7 @@ export class ActionButtonsService {
       new ActionButtonModel().build(
         '',
         '../../../../assets/icons/whatsapp.png',
-        'Meu Canal No YouTube',
+        'Whatsapp',
         'whatsapp',
         ['whatsapp']
       )
@@ -21,7 +21,7 @@ export class ActionButtonsService {
       new ActionButtonModel().build(
         '',
         '../../../../assets/icons/email.png',
-        'Meu Canal No YouTube',
+        'Email',
         'email',
         ['email']
       )
@@ -30,7 +30,7 @@ export class ActionButtonsService {
       new ActionButtonModel().build(
         '',
         '../../../../assets/icons/telefone.png',
-        'Meu Canal No YouTube',
+        'Telefone',
         'telefone',
         ['telefone']
       )
@@ -39,7 +39,7 @@ export class ActionButtonsService {
       new ActionButtonModel().build(
         '',
         '../../../../assets/icons/download.png',
-        'Meu Canal No YouTube',
+        'Cartão Offline',
         'download',
         ['download']
       )
