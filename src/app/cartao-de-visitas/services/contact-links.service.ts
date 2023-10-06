@@ -18,7 +18,7 @@ export class ContactLinksService {
   }
 
   getAllContactLinks() {
-    this.EMAIL = 'rafaeljwerneck43@gmail.com';
+    this.EMAIL = 'wiriswernek@gmail.com';
     this.PHONE_NUMBER = '+5528999814672';
     this.WHATSAPP_NUMBER = '5528999814672';
 	this.DOWNLOAD = "../../../assets/files/cartao-de-visitas-interativo.pdf";
