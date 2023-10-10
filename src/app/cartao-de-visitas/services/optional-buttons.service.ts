@@ -13,10 +13,12 @@ export class OptionalButtonsService {
 
   getAllOptionButtons() {
     this.optionalButtons.build(
-      false,
+      true,
       '7733cb5d-2e77-40ff-9b44-f3bf578cf988',
-      false,
-      false
+      true,
+      true,
+      true,
+      ''
     );
     return this.optionalButtons;
   }

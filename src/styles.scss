@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "./node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 html,
 body {
   min-height: 100%;
@@ -7,11 +8,7 @@ body {
 }
 
 body {
-  background-image: linear-gradient(
-    to bottom,
-    #00d87e 0%,
-    #00d8d8 100%
-  );
+  background-image: linear-gradient(to bottom, #00d87e 0%, #00d8d8 100%);
   font-family: "Fira Code", monospace;
 }
 
@@ -20,6 +17,9 @@ a {
   color: #2f3435;
 }
 
-@media (min-width: 700px) {
+textarea {
+  resize: none;
+}
 
+@media (min-width: 700px) {
 }
