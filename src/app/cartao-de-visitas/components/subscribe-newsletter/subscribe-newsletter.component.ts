@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -7,7 +8,13 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./subscribe-newsletter.component.scss'],
 })
 export class SubscribeNewsletterComponent {
-  constructor(public modalRef: BsModalRef) {}
+  newsletterForm!: FormGroup;
+
+  constructor(public modalRef: BsModalRef) {
+    this.newsletterForm = new FormGroup({
+      email: new FormControl(''),
+    });
+  }
 
   enviar() {
     console.log('Enviado Send Component');

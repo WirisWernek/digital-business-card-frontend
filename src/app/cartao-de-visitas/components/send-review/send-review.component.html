@@ -1,20 +1,16 @@
 <div class="modal-header d-flex justify-content-center">
 	<h4 class="modal-title align-self-center">Enviar Avaliação</h4>
 </div>
-<div class="modal-body">
-	<div class="mb-3">
-		<label for="emailFormInput" class="form-label">Email</label>
-		<input type="email" class="form-control" id="emailFormInput" placeholder="name@example.com">
+<form [formGroup]="reviewForm" class="modal-body">
+	<div class="mb-3 text-center">
+		<rating class="" id="avaliacaoFormInput" formControlName="avaliacao" [max]="5"></rating>
 	</div>
+
 	<div class="mb-3">
-		<label for="assuntoFormInput" class="form-label">Assunto</label>
-		<input type="text" class="form-control" id="assuntoFormInput" placeholder="Gostaria de um orçamento">
+		<label for="conteudoFormInput" class="form-label">Comentário</label>
+		<textarea class="form-control" id="conteudoFormInput" formControlName="comentario" rows="3"></textarea>
 	</div>
-	<div class="mb-3">
-		<label for="conteudoFormInput" class="form-label">Conteúdo do Email</label>
-		<textarea class="form-control" id="conteudoFormInput" rows="3"></textarea>
-	</div>
-</div>
+</form>
 <div class="modal-footer d-flex justify-content-center">
 	<button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
 	<button type="button" class="btn btn-primary" (click)="enviar()">Enviar</button>

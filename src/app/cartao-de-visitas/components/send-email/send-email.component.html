@@ -1,20 +1,20 @@
 <div class="modal-header d-flex justify-content-center">
 	<h4 class="modal-title align-self-center">Enviar Email</h4>
 </div>
-<div class="modal-body">
+<form [formGroup]="emailForm" class="modal-body">
 	<div class="mb-3">
-		<label for="emailFormInput" class="form-label">Email</label>
-		<input type="email" class="form-control" id="emailFormInput" placeholder="name@example.com">
+		<label for="emailFormInput" class="form-label">Email de Cópia</label>
+		<input formControlName="emailCopia" type="email" class="form-control" id="emailFormInput" placeholder="name@example.com">
 	</div>
 	<div class="mb-3">
 		<label for="assuntoFormInput" class="form-label">Assunto</label>
-		<input type="text" class="form-control" id="assuntoFormInput" placeholder="Gostaria de um orçamento">
+		<input formControlName="assunto" type="text" class="form-control" id="assuntoFormInput" placeholder="Gostaria de um orçamento">
 	</div>
 	<div class="mb-3">
 		<label for="conteudoFormInput" class="form-label">Conteúdo do Email</label>
-		<textarea class="form-control" id="conteudoFormInput" rows="3"></textarea>
+		<textarea formControlName="conteudo" class="form-control" id="conteudoFormInput" rows="3"></textarea>
 	</div>
-</div>
+</form>
 <div class="modal-footer d-flex justify-content-center">
 	<button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
 	<button type="button" class="btn btn-primary" (click)="enviar()">Enviar</button>

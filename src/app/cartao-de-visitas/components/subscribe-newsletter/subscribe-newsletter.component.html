@@ -1,12 +1,12 @@
 <div class="modal-header d-flex justify-content-center">
 	<h4 class="modal-title align-self-center">Newsletter</h4>
 </div>
-<div class="modal-body">
+<form [formGroup]="newsletterForm" class="modal-body">
 	<div class="mb-3">
-		<label for="emailFormInput" class="form-label">Email</label>
-		<input type="email" class="form-control" id="emailFormInput" placeholder="name@example.com">
+		<label for="emailFormInput" class="form-label">Seu Email</label>
+		<input type="email" class="form-control" id="emailFormInput" placeholder="name@example.com" formControlName="email">
 	</div>
-</div>
+</form>
 <div class="modal-footer d-flex justify-content-center">
 	<button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
 	<button type="button" class="btn btn-primary" (click)="enviar()">Inscrever-me</button>
