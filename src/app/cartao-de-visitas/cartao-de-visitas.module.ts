@@ -14,6 +14,7 @@ import { SendEmailComponent } from './components/send-email/send-email.component
 import { SendReviewComponent } from './components/send-review/send-review.component';
 import { SubscribeNewsletterComponent } from './components/subscribe-newsletter/subscribe-newsletter.component';
 import { CartaoDeVisitasComponent } from './views/cartao-de-visitas/cartao-de-visitas.component';
+import { SendNotesComponent } from './components/send-notes/send-notes.component';
 
 const routes: Routes = [{ path: '', component: CartaoDeVisitasComponent }];
 
@@ -29,6 +30,7 @@ const routes: Routes = [{ path: '', component: CartaoDeVisitasComponent }];
     OptionalButtonsComponent,
     SendReviewComponent,
     SubscribeNewsletterComponent,
+    SendNotesComponent,
   ],
   imports: [
     CommonModule,

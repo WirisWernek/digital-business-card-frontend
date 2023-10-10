@@ -4,6 +4,7 @@ import { ClipboardService } from 'ngx-clipboard';
 import { OptionalButtons } from '../../models/OptionalButtons.model';
 import { OptionalButtonsService } from '../../services/optional-buttons.service';
 import { SendEmailComponent } from '../send-email/send-email.component';
+import { SendNotesComponent } from '../send-notes/send-notes.component';
 import { SendReviewComponent } from '../send-review/send-review.component';
 import { SubscribeNewsletterComponent } from '../subscribe-newsletter/subscribe-newsletter.component';
 
@@ -56,6 +57,14 @@ export class OptionalButtonsComponent implements OnInit {
     console.log('Pois é não tem ainda, Deixe seu F no console!');
     this.bsModalRef = this.modalService.show(
       SendReviewComponent,
+      this.MODAL_OPTIONS
+    );
+  }
+
+  openModalAnotacao() {
+    console.log('Pois é não tem ainda, Deixe seu F no console!');
+    this.bsModalRef = this.modalService.show(
+      SendNotesComponent,
       this.MODAL_OPTIONS
     );
   }

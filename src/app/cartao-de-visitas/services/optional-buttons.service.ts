@@ -18,7 +18,8 @@ export class OptionalButtonsService {
       true,
       true,
       true,
-      ''
+      '',
+      true
     );
     return this.optionalButtons;
   }
