@@ -14,7 +14,12 @@
 	<div *ngIf="optionalButtons.emailRapidoEnable" class="col-11 button" (click)="openModalEmail()" (keydown)="openModalEmail()" tabindex="">
 		<span>Enviar Email</span>
 	</div>
+
 	<div *ngIf="optionalButtons.anotacaoEnable" class="col-11 button" (click)="openModalAnotacao()" (keydown)="openModalAnotacao()" tabindex="">
 		<span>Enviar Anotação</span>
+	</div>
+	
+	<div *ngIf="optionalButtons.anotacaoEnable" class="col-11 button" (click)="compartilhar()" (keydown)="compartilhar()" tabindex="">
+		<span>Compartilhar</span>
 	</div>
 </section>

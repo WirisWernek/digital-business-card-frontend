@@ -68,4 +68,20 @@ export class OptionalButtonsComponent implements OnInit {
       this.MODAL_OPTIONS
     );
   }
+
+  async compartilhar() {
+    try {
+      if (navigator.canShare()) {
+        await navigator.share({
+          title: 'Images',
+          text: 'Beautiful images',
+          url: window.location.href,
+        });
+      } else {
+        alert(`Your system doesn't support sharing these files.`);
+      }
+    } catch (error: any) {
+      alert(`Error: ${error.message}`);
+    }
+  }
 }
