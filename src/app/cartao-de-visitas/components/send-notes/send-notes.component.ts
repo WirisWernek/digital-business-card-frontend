@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { EmailModel } from '../../models/EmailModel.model';
+import { EmailService } from '../../services/email.service';
 
 @Component({
   selector: 'app-send-notes',
@@ -8,22 +10,34 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./send-notes.component.scss'],
 })
 export class SendNotesComponent {
-  anotacaoForm!: FormGroup;
+  defaultEmail!: string;
+  noteForm!: FormGroup;
 
-  constructor(public modalRef: BsModalRef) {
-    this.anotacaoForm = new FormGroup({
-      emailDestino: new FormControl(''),
-      assunto: new FormControl(''),
-      conteudo: new FormControl(''),
+  constructor(
+    public modalRef: BsModalRef,
+    private formBuilder: FormBuilder,
+    private emailService: EmailService
+  ) {
+    this.noteForm = this.formBuilder.group({
+      emailDestino: ['', Validators.required],
+      assunto: ['', Validators.required],
+      conteudo: ['', Validators.required],
     });
   }
 
   enviar() {
-    console.log('Enviado Send Component');
+    const email = new EmailModel();
+	email.emCopia = this.defaultEmail;
+	email.remetente = this.defaultEmail;
+    email.para = this.noteForm.get('emailDestino')?.value;
+    email.assunto = this.noteForm.get('assunto')?.value;
+    email.conteudo = this.noteForm.get('conteudo')?.value;
+
+    this.emailService.sendNote(email);
+	this.modalRef.hide();
   }
 
   cancelar() {
-    console.log('Cancelar Send Component');
     this.modalRef.hide();
   }
 }

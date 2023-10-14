@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { EmailModel } from '../../models/EmailModel.model';
+import { EmailService } from '../../services/email.service';
 
 @Component({
   selector: 'app-send-email',
@@ -8,22 +10,34 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
   styleUrls: ['./send-email.component.scss'],
 })
 export class SendEmailComponent {
+  defaultEmail!: string;
   emailForm!: FormGroup;
 
-  constructor(public modalRef: BsModalRef) {
-    this.emailForm = new FormGroup({
-      emailCopia: new FormControl(''),
-      assunto: new FormControl(''),
-      conteudo: new FormControl(''),
+  constructor(
+    public modalRef: BsModalRef,
+    private formBuilder: FormBuilder,
+    private emailService: EmailService
+  ) {
+    this.emailForm = this.formBuilder.group({
+      emailCopia: ['', Validators.required],
+      assunto: ['', Validators.required],
+      conteudo: ['', Validators.required],
     });
   }
 
   enviar() {
-    console.log('Enviado Send Component');
+    const email = new EmailModel();
+    email.para = this.defaultEmail;
+	email.remetente = this.emailForm.get('emailCopia')?.value;
+	email.emCopia = this.emailForm.get('emailCopia')?.value;
+    email.assunto = this.emailForm.get('assunto')?.value;
+    email.conteudo = this.emailForm.get('conteudo')?.value;
+    
+	this.emailService.sendEmailRapido(email);
+	this.modalRef.hide();
   }
 
   cancelar() {
-    console.log('Cancelar Send Component');
     this.modalRef.hide();
   }
 }

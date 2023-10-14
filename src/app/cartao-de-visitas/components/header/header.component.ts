@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
 	}else{
 		this.ultimaAcao = '1';
 	}
-    console.log('ok');
     this.emmitTypeVisible.emit(this.ultimaAcao);
   }
 

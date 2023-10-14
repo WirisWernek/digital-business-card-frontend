@@ -38,11 +38,14 @@ export class OptionalButtonsComponent implements OnInit {
   }
 
   openModalEmail() {
-    console.log('Pois é não tem ainda, Deixe seu F no console!');
-    this.bsModalRef = this.modalService.show(
-      SendEmailComponent,
-      this.MODAL_OPTIONS
-    );
+    this.bsModalRef = this.modalService.show(SendEmailComponent, {
+      class: 'modal-lg modal-dialog-centered',
+      ignoreBackdropClick: true,
+      keyboard: true,
+      initialState: {
+        defaultEmail: this.optionalButtons.emailRapidoEndereco,
+      },
+    });
   }
 
   openModalNewsletter() {
@@ -62,11 +65,14 @@ export class OptionalButtonsComponent implements OnInit {
   }
 
   openModalAnotacao() {
-    console.log('Pois é não tem ainda, Deixe seu F no console!');
-    this.bsModalRef = this.modalService.show(
-      SendNotesComponent,
-      this.MODAL_OPTIONS
-    );
+    this.bsModalRef = this.modalService.show(SendNotesComponent, {
+      class: 'modal-lg modal-dialog-centered',
+      ignoreBackdropClick: true,
+      keyboard: true,
+      initialState: {
+        defaultEmail: this.optionalButtons.emailRapidoEndereco,
+      },
+    });
   }
 
   async compartilhar() {

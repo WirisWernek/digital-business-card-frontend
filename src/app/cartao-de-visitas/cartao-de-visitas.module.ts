@@ -11,10 +11,10 @@ import { ListProjectsLinksComponent } from './components/list-project-links/list
 import { ListSocialLinksComponent } from './components/list-social-links/list-social-links.component';
 import { OptionalButtonsComponent } from './components/optional-buttons/optional-buttons.component';
 import { SendEmailComponent } from './components/send-email/send-email.component';
+import { SendNotesComponent } from './components/send-notes/send-notes.component';
 import { SendReviewComponent } from './components/send-review/send-review.component';
 import { SubscribeNewsletterComponent } from './components/subscribe-newsletter/subscribe-newsletter.component';
 import { CartaoDeVisitasComponent } from './views/cartao-de-visitas/cartao-de-visitas.component';
-import { SendNotesComponent } from './components/send-notes/send-notes.component';
 
 const routes: Routes = [{ path: '', component: CartaoDeVisitasComponent }];
 
@@ -23,8 +23,8 @@ const routes: Routes = [{ path: '', component: CartaoDeVisitasComponent }];
     CartaoDeVisitasComponent,
     HeaderComponent,
     ActionButtonsComponent,
-	ListSocialLinksComponent,
-	ListProjectsLinksComponent,
+    ListSocialLinksComponent,
+    ListProjectsLinksComponent,
     FooterComponent,
     SendEmailComponent,
     OptionalButtonsComponent,
@@ -34,11 +34,11 @@ const routes: Routes = [{ path: '', component: CartaoDeVisitasComponent }];
   ],
   imports: [
     CommonModule,
-	FormsModule, 
-	ReactiveFormsModule,
-	ModalModule.forRoot(),
-	RatingModule.forRoot(),
-	RouterModule.forChild(routes),
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+    ModalModule.forRoot(),
+    RatingModule.forRoot(),
+    RouterModule.forChild(routes),
+  ],
 })
-export class CartaoDeVisitasModule { }
+export class CartaoDeVisitasModule {}
