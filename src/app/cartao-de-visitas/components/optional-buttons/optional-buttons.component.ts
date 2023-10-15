@@ -21,6 +21,8 @@ export class OptionalButtonsComponent implements OnInit {
     ignoreBackdropClick: true,
     keyboard: true,
   };
+  compartilharEnable = false;
+
   constructor(
     private optionalButtonsService: OptionalButtonsService,
     private clipboardService: ClipboardService,
@@ -31,6 +33,7 @@ export class OptionalButtonsComponent implements OnInit {
 
   ngOnInit(): void {
     this.optionalButtons = this.optionalButtonsService.getAllOptionButtons();
+	this.compartilharEnable = window.navigator.canShare();
   }
 
   copiarChavePix() {
