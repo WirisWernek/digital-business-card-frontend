@@ -1,0 +1,17 @@
+<div class="modal-header d-flex justify-content-center">
+	<h4 class="modal-title align-self-center">Enviar Avaliação</h4>
+</div>
+<form [formGroup]="reviewForm" class="modal-body">
+	<div class="mb-3 text-center">
+		<rating class="" id="avaliacaoFormInput" formControlName="avaliacao" [max]="5"></rating>
+	</div>
+
+	<div class="mb-3">
+		<label for="conteudoFormInput" class="form-label">Comentário</label>
+		<textarea class="form-control" id="conteudoFormInput" formControlName="comentario" rows="3"></textarea>
+	</div>
+</form>
+<div class="modal-footer d-flex justify-content-center">
+	<button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+	<button type="button" class="btn btn-primary" (click)="enviar()">Enviar</button>
+</div>

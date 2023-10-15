@@ -6,17 +6,4 @@
 	<a *ngFor="let link of listLinks" [ngClass]="link.styles" href="{{link.link}}" target="_blank">
 		<span class="">{{link.texto}}</span>
 	</a>
-
-	<!-- Botões Opcionais -->
-	<div *ngIf="optionalButtons.pixEnable" class="col-11 button" (click)="copiarChavePix()" (keydown)="copiarChavePix()">
-		<span>Copiar chave pix</span>
-	</div>
-
-	<div *ngIf="optionalButtons.avaliacaoEnable" class="col-11 button" (click)="avaliarTrabalho()" (keydown)="avaliarTrabalho()">
-		<span>Avalie meu trabalho</span>
-	</div>
-
-	<div *ngIf="optionalButtons.newsletterEnable" class="col-11 button" (click)="inscricaoNewsletter()" (keydown)="inscricaoNewsletter()">
-		<span>Se inscreva em nossa newsletter</span>
-	</div>
 </section>

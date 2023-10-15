@@ -50,20 +50,6 @@ export class ListProjectsLinksService {
         ['col-11', 'button']
       )
     );
-    listLinks.push(
-      new LinkModel().build(
-        'https://snake-game-wiriswernek.vercel.app',
-        'Snake Game',
-        ['col-11', 'button']
-      )
-    );
-    listLinks.push(
-      new LinkModel().build(
-        'https://jogo-da-velha-wiriswernek.vercel.app',
-        'Jogo da Velha',
-        ['col-11', 'button']
-      )
-    );
     return listLinks;
   }
 }

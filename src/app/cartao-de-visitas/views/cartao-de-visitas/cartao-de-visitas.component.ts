@@ -9,11 +9,6 @@ export class CartaoDeVisitasComponent {
   typeVisible = '1';
 
   reciverResponse(response: string) {
-    console.log(
-      'Foi emitido e evento e chegou ao componente pai os dados >>>> {}',
-      response
-    );
     this.typeVisible = response;
-	console.log(this.typeVisible);
   }
 }
