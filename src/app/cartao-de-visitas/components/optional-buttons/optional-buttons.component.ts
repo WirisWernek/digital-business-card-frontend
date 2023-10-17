@@ -33,7 +33,7 @@ export class OptionalButtonsComponent implements OnInit {
 
   ngOnInit(): void {
     this.optionalButtons = this.optionalButtonsService.getAllOptionButtons();
-	this.compartilharEnable = window.navigator.canShare();
+	  this.compartilharEnable = window.navigator?.canShare() ? true : false;
   }
 
   copiarChavePix() {
