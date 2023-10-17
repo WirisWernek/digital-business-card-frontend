@@ -80,7 +80,7 @@ export class OptionalButtonsComponent implements OnInit {
 
   async compartilhar() {
     try {
-      if (navigator.canShare()) {
+      if (navigator.canShare) {
         await navigator.share({
           title: 'Images',
           text: 'Beautiful images',
