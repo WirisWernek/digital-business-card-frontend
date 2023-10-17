@@ -86,7 +86,7 @@ export class OptionalButtonsComponent implements OnInit {
           url: window.location.href,
         };
     try {
-      if (navigator.canShare(data) {
+      if (navigator.canShare(data)) {
         await navigator.share(data);
       } else {
         alert(`Your system doesn't support sharing these files.`);
