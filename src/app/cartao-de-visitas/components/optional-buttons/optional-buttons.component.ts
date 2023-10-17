@@ -79,13 +79,15 @@ export class OptionalButtonsComponent implements OnInit {
   }
 
   async compartilhar() {
-    try {
-      if (navigator.canShare) {
-        await navigator.share({
-          title: 'Images',
-          text: 'Beautiful images',
+
+    let data = {
+          title: 'Cartão Digital',
+          text: 'Cartão de Visitas Digital',
           url: window.location.href,
-        });
+        };
+    try {
+      if (navigator.canShare(data) {
+        await navigator.share(data);
       } else {
         alert(`Your system doesn't support sharing these files.`);
       }
