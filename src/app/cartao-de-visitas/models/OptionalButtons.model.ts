@@ -6,6 +6,7 @@ export class OptionalButtons {
   emailRapidoEnable: boolean;
   emailRapidoEndereco: string;
   anotacaoEnable: boolean;
+  compartilharEnable: boolean;
 
   constructor() {
     this.pixEnable = false;
@@ -15,6 +16,7 @@ export class OptionalButtons {
     this.emailRapidoEnable = false;
     this.emailRapidoEndereco = '';
     this.anotacaoEnable = false;
+    this.compartilharEnable = false;
   }
 
   build(
@@ -24,7 +26,8 @@ export class OptionalButtons {
     newsletterEnable: boolean,
     emailRapidoEnable: boolean,
     emailRapidoEndereco: string,
-    anotacaoEnable: boolean
+    anotacaoEnable: boolean,
+    compartilharEnable: boolean
   ) {
     this.pixEnable = pixEnable;
     this.chavePix = chavePix;
@@ -33,6 +36,7 @@ export class OptionalButtons {
     this.emailRapidoEnable = emailRapidoEnable;
     this.emailRapidoEndereco = emailRapidoEndereco;
     this.anotacaoEnable = anotacaoEnable;
+    this.compartilharEnable = compartilharEnable;
     return this;
   }
 }
