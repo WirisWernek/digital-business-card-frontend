@@ -1,4 +1,4 @@
-# Digital Visit Card ![version](https://img.shields.io/badge/version-1.3.0-blue)
+# Digital Visit Card ![version](https://img.shields.io/badge/version-1.3.1-blue)
 
 ## Sobre
 
