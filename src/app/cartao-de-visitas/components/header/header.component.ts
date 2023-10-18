@@ -1,41 +1,30 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Output() emmitTypeVisible = new EventEmitter<string>();
+  ultimaAcao: string;
+  nome: string;
   subtitle: string;
-  index = -1;
-
-  text = 'Backend Web Developer';
-  textArray: Array<string> = this.text.split('');
-  ultimaAcao = '1';
+  imagemPerfil: string;
 
   constructor() {
-    this.subtitle = '';
-  }
-  ngOnInit(): void {
-    this.loadSubtitleWithEffect();
+    this.ultimaAcao = '1';
+    this.nome = 'Wiris Wernek';
+    this.subtitle = 'Backend Web Developer';
+    this.imagemPerfil = '../../../../assets/images/profile-image.jpeg';
   }
 
   changeOption() {
-	if(this.ultimaAcao == '1'){
-		this.ultimaAcao = '2';
-	}else{
-		this.ultimaAcao = '1';
-	}
+    if (this.ultimaAcao == '1') {
+      this.ultimaAcao = '2';
+    } else {
+      this.ultimaAcao = '1';
+    }
     this.emmitTypeVisible.emit(this.ultimaAcao);
-  }
-
-  loadSubtitleWithEffect() {
-    if (this.index < this.textArray.length - 1)
-      setTimeout(() => {
-        this.index += 1;
-        this.subtitle += this.textArray[this.index];
-        this.loadSubtitleWithEffect();
-      }, 150);
   }
 }

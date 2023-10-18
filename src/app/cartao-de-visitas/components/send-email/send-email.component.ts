@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { EmailModel } from '../../models/EmailModel.model';
+import { EmailModel } from '../../models/Email.model';
 import { EmailService } from '../../services/email.service';
 
 @Component({
