@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -15,6 +16,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
 	HttpClientModule,
+	NgxSpinnerModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
