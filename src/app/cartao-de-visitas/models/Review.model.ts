@@ -1,0 +1,15 @@
+export class ReviewModel{
+	id?: number;
+	nota: number;
+	comentario: string;
+
+	constructor(){
+		this.nota = 0;
+		this.comentario = "";
+	}
+
+	build(nota: number, comentario: string){
+		this.nota = nota;
+		this.comentario = comentario;
+	}
+}

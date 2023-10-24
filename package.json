@@ -21,6 +21,7 @@
     "@angular/router": "^16.2.0",
     "@angular/service-worker": "^16.2.0",
     "bootstrap": "^5.3.2",
+    "dexie": "^3.2.4",
     "ngx-bootstrap": "^11.0.2",
     "ngx-clipboard": "^16.0.0",
     "rxjs": "~7.8.0",
