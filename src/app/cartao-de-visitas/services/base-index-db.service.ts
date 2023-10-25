@@ -13,11 +13,15 @@ export abstract class BaseIndexDBService<T extends BaseModel> {
   protected http: HttpClient;
   protected connectionService: ConnectionService;
 
-  constructor(protected injector: Injector, protected nomeTabela: string, protected apiUrl: string) {
+  constructor(
+    protected injector: Injector,
+    protected nomeTabela: string,
+    protected apiUrl: string
+  ) {
     this.http = this.injector.get(HttpClient);
     this.connectionService = this.injector.get(ConnectionService);
     this.database = this.criarDatabase();
-	this.table = this.database.table(this.nomeTabela);
+    this.table = this.database.table(this.nomeTabela);
     this.registrarEventos(this.connectionService);
   }
 
@@ -51,12 +55,11 @@ export abstract class BaseIndexDBService<T extends BaseModel> {
 
   private salvarAPI(modelo: T) {
     console.log('Mandando pra API.');
-    this.http.post(this.apiUrl, modelo).subscribe(
-      () => {
-        alert(`${this.nomeTabela} salvo com sucesso!`);
-      },
-      (err) => console.error(`Erro ao salvar ${this.nomeTabela}`, err)
-    );
+    this.http.post(this.apiUrl, modelo).subscribe({
+      next: (item) => console.info(item),
+      error: (err) => console.error(`Erro ao salvar ${this.nomeTabela}`, err),
+      complete: () => alert(`${this.nomeTabela} salvo com sucesso!`),
+    });
   }
 
   private salvarIndexedDb(modelo: T) {
@@ -64,7 +67,10 @@ export abstract class BaseIndexDBService<T extends BaseModel> {
       .add(modelo)
       .then(async () => {
         const allmodelos: T[] = await this.table.toArray();
-        console.log(`Novo item ${this.nomeTabela} foi salvo no IndexedDb`, allmodelos);
+        console.log(
+          `Novo item ${this.nomeTabela} foi salvo no IndexedDb`,
+          allmodelos
+        );
       })
       .catch((err) =>
         console.log(`Erro ao incluir ${this.nomeTabela} no IndexedDb`, err)
@@ -79,7 +85,9 @@ export abstract class BaseIndexDBService<T extends BaseModel> {
       this.salvarAPI(item);
 
       this.table.delete(item.id).then(() => {
-        console.log(`${this.nomeTabela} com ID ${item?.id} deletado do IndexedDb`);
+        console.log(
+          `${this.nomeTabela} com ID ${item?.id} deletado do IndexedDb`
+        );
       });
     });
   }
