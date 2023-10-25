@@ -1,9 +1,11 @@
-export class ReviewModel{
-	id?: number;
+import { BaseModel } from "./Base.model";
+
+export class ReviewModel extends BaseModel{
 	nota: number;
 	comentario: string;
 
 	constructor(){
+		super()
 		this.nota = 0;
 		this.comentario = "";
 	}

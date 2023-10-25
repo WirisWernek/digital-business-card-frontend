@@ -87,9 +87,9 @@ export class OptionalButtonsComponent implements OnInit {
       } else {
         alert(`Your system doesn't support sharing these files.`);
       }
-    } catch (error: any) {
+    } catch (error) {
       alert(
-        `Your system doesn't support sharing these files.\nError: ${error.message}`
+        `Your system doesn't support sharing these files.\nError: ${error}`
       );
     }
   }
