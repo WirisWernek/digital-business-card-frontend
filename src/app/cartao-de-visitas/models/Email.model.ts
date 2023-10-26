@@ -1,4 +1,6 @@
-export class EmailModel {
+import { BaseModel } from "./Base.model";
+
+export class EmailModel extends BaseModel {
   conteudo: string;
   assunto: string;
   para: string;
@@ -6,6 +8,7 @@ export class EmailModel {
   emCopia: string;
 
   constructor() {
+	super();
     this.conteudo = '';
     this.assunto = '';
     this.para = '';

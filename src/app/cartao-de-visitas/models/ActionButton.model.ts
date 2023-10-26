@@ -1,4 +1,6 @@
-export class ActionButtonModel {
+import { BaseModel } from "./Base.model";
+
+export class ActionButtonModel extends BaseModel {
   link: string;
   imagem: string;
   descricao: string;
@@ -6,6 +8,7 @@ export class ActionButtonModel {
   styles: Array<string>;
 
   constructor() {
+	super();
     this.link = '';
     this.imagem = '';
     this.descricao = '';

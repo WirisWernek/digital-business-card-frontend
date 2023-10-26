@@ -5,7 +5,7 @@ export class ReviewModel extends BaseModel{
 	comentario: string;
 
 	constructor(){
-		super()
+		super();
 		this.nota = 0;
 		this.comentario = "";
 	}

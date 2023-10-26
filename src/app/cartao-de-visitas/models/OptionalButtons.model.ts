@@ -1,4 +1,6 @@
-export class OptionalButtons {
+import { BaseModel } from './Base.model';
+
+export class OptionalButtons extends BaseModel {
   pixEnable: boolean;
   chavePix: string;
   avaliacaoEnable: boolean;
@@ -9,6 +11,7 @@ export class OptionalButtons {
   compartilharEnable: boolean;
 
   constructor() {
+    super();
     this.pixEnable = false;
     this.chavePix = '';
     this.avaliacaoEnable = false;

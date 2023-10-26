@@ -1,9 +1,12 @@
-export class UserModel {
+import { BaseModel } from './Base.model';
+
+export class UserModel extends BaseModel {
   username: string;
   subtitle: string;
   profileImage: string;
 
   constructor() {
+    super();
     this.username = '';
     this.subtitle = '';
     this.profileImage = '';

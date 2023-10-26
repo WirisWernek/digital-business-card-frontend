@@ -1,4 +1,6 @@
-export class ContactLinkModel {
+import { BaseModel } from './Base.model';
+
+export class ContactLinkModel extends BaseModel {
   whatsapp: string;
   email: string;
   telefone: string;
@@ -6,19 +8,26 @@ export class ContactLinkModel {
   download: string;
 
   constructor() {
+    super();
     this.whatsapp = '';
     this.email = '';
     this.telefone = '';
     this.localizacao = '';
-	this.download = ""
+    this.download = '';
   }
 
-  buid(whatsapp: string, email: string, telefone: string, localizacao: string, download: string) {
+  buid(
+    whatsapp: string,
+    email: string,
+    telefone: string,
+    localizacao: string,
+    download: string
+  ) {
     this.whatsapp = whatsapp;
     this.email = email;
     this.telefone = telefone;
     this.localizacao = localizacao;
-	this.download = download;
+    this.download = download;
     return this;
   }
 }
