@@ -3,10 +3,10 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ClipboardService } from 'ngx-clipboard';
 import { OptionalButtons } from '../../models/OptionalButtons.model';
 import { OptionalButtonsService } from '../../services/optional-buttons.service';
-import { SendEmailComponent } from '../send-email/send-email.component';
-import { SendNotesComponent } from '../send-notes/send-notes.component';
-import { SendReviewComponent } from '../send-review/send-review.component';
-import { SubscribeNewsletterComponent } from '../subscribe-newsletter/subscribe-newsletter.component';
+import { SendEmailComponent } from '../modals/send-email/send-email.component';
+import { SendNotesComponent } from '../modals/send-notes/send-notes.component';
+import { SendReviewComponent } from '../modals/send-review/send-review.component';
+import { SubscribeNewsletterComponent } from '../modals/subscribe-newsletter/subscribe-newsletter.component';
 
 @Component({
   selector: 'app-optional-buttons',
