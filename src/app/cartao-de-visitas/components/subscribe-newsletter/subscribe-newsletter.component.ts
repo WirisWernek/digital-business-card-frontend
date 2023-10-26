@@ -19,15 +19,20 @@ export class SubscribeNewsletterComponent {
     private newsletterService: SubscribeNewsletterService
   ) {
     this.newsletterForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+        ],
+      ],
     });
 
     this.emailValido = true;
   }
 
   enviar() {
-    
-	this.validate();
+    this.validate();
 
     if (this.emailValido) {
       const newsletter = new NewsletterModel();
@@ -46,8 +51,7 @@ export class SubscribeNewsletterComponent {
 
   validate() {
     this.emailValido =
-      this.newsletterForm.controls['email'].touched &&
-      !!this.newsletterForm.controls['email'].errors;
+      this.newsletterForm.controls['email'].touched && (!!this.newsletterForm.controls['email'].errors === false);
 
     if (this.newsletterForm.get('email')?.value.trim() === '') {
       this.emailValido = false;

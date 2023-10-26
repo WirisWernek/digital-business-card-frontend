@@ -4,15 +4,30 @@
 <form [formGroup]="noteForm" class="modal-body">
 	<div class="mb-3">
 		<label for="emailFormInput" class="form-label">Email Destino</label>
-		<input formControlName="emailDestino" type="email" class="form-control" id="emailFormInput" placeholder="name@example.com">
+		<input [ngClass]=" emailDestinoValido ? 'form-control' : 'form-control is-invalid'"
+			formControlName="emailDestino" type="email" id="emailFormInput" placeholder="name@example.com" (blur)="validateEmailDestino()">
+		<ng-container *ngIf="!emailDestinoValido">
+			<label for="emailFormInput" class="form-label text-danger">É necessário informar o email de cópia!</label>
+		</ng-container>
+
 	</div>
 	<div class="mb-3">
 		<label for="assuntoFormInput" class="form-label">Assunto</label>
-		<input formControlName="assunto" type="text" class="form-control" id="assuntoFormInput" placeholder="Gostaria de um orçamento">
+		<input [ngClass]=" assuntoValido ? 'form-control' : 'form-control is-invalid'" formControlName="assunto"
+			type="text" id="assuntoFormInput" placeholder="Gostaria de um orçamento" (blur)="validateAssunto()">
+		<ng-container *ngIf="!assuntoValido">
+			<label for="assuntoFormInput" class="form-label text-danger">É necessário informar o assunto do emal</label>
+		</ng-container>
+
 	</div>
 	<div class="mb-3">
 		<label for="conteudoFormInput" class="form-label">Conteúdo do Email</label>
-		<textarea formControlName="conteudo" class="form-control" id="conteudoFormInput" rows="3"></textarea>
+		<textarea [ngClass]=" conteudoValido ? 'form-control' : 'form-control is-invalid'" formControlName="conteudo"
+			id="conteudoFormInput" rows="3" (blur)="validateConteudo()"></textarea>
+		<ng-container *ngIf="!conteudoValido">
+			<label for="conteudoFormInput" class="form-label text-danger">É necessário informar o conteúdo do
+				email!</label>
+		</ng-container>
 	</div>
 </form>
 <div class="modal-footer d-flex justify-content-center">

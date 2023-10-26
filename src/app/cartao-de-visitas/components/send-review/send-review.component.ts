@@ -50,7 +50,7 @@ export class SendReviewComponent {
   validate() {
     this.avaliacaoValida = false;
 
-    this.avaliacaoValida = !!this.reviewForm.controls['avaliacao'].errors;
+    this.avaliacaoValida = (!!this.reviewForm.controls['avaliacao'].errors === false);
 
     if (
       this.reviewForm.get('avaliacao')?.value >= 1 &&
