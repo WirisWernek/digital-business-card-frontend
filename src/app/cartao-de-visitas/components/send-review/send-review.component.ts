@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { ReviewModel } from '../../models/Review.model';
 import { SendReviewService } from '../../services/send-review.service';
@@ -11,31 +11,54 @@ import { SendReviewService } from '../../services/send-review.service';
 })
 export class SendReviewComponent {
   reviewForm!: FormGroup;
+  avaliacaoValida: boolean;
 
   constructor(
     public modalRef: BsModalRef,
+    private formBuilder: FormBuilder,
     private sendReviewService: SendReviewService
   ) {
-    this.reviewForm = new FormGroup({
-      avaliacao: new FormControl(0),
-      comentario: new FormControl(''),
+    this.reviewForm = this.formBuilder.group({
+      avaliacao: [0, Validators.required],
+      comentario: [''],
     });
+
+    this.avaliacaoValida = true;
   }
 
   enviar() {
-    const review = new ReviewModel();
+    this.validate();
+    if (this.avaliacaoValida) {
+      const review = new ReviewModel();
 
-    const avaliacao = this.reviewForm.get('avaliacao')?.value;
-    const comentario = this.reviewForm.get('comentario')?.value;
+      const avaliacao = this.reviewForm.get('avaliacao')?.value;
+      const comentario = this.reviewForm.get('comentario')?.value;
 
-    review.build( avaliacao, comentario);
+      review.build(avaliacao, comentario);
 
-    this.sendReviewService.salvar(review);
-    console.log('Enviado Send Component');
+      this.sendReviewService.salvar(review);
+      this.modalRef.hide();
+    } else {
+      alert('Há campos obrigatórios que não foram preenchidos!');
+    }
   }
 
   cancelar() {
-    console.log('Cancelar Send Component');
     this.modalRef.hide();
+  }
+
+  validate() {
+    this.avaliacaoValida = false;
+
+    this.avaliacaoValida = !!this.reviewForm.controls['avaliacao'].errors;
+
+    if (
+      this.reviewForm.get('avaliacao')?.value >= 1 &&
+      this.reviewForm.get('avaliacao')?.value <= 5
+    ) {
+      this.avaliacaoValida = true;
+    } else {
+      this.avaliacaoValida = false;
+    }
   }
 }

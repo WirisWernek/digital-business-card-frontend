@@ -7,7 +7,6 @@ import { BaseIndexDBService } from './base-index-db.service';
   providedIn: 'root',
 })
 export class SendReviewService extends BaseIndexDBService<ReviewModel> {
-  private BASE_API_URL: string = environment.API_URL + '';
 
   constructor(protected injectable: Injector) {
     super(injectable, 'reviews', environment.API_URL + '');
