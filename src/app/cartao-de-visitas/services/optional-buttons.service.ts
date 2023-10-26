@@ -16,7 +16,7 @@ export class OptionalButtonsService {
       false,
       '7733cb5d-2e77-40ff-9b44-f3bf578cf988',
       true,
-      false,
+      true,
       true,
       'wiriswernek@gmail.com',
       true,
