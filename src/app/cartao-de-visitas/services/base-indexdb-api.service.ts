@@ -7,7 +7,7 @@ import { ConnectionService } from './connection.service';
 @Injectable({
   providedIn: 'root',
 })
-export abstract class BaseIndexDBService<T extends BaseModel> {
+export abstract class BaseIndexDBServiceAPI<T extends BaseModel> {
   private database: Dexie;
   private table: Dexie.Table<T, number>;
   protected http: HttpClient;
@@ -54,7 +54,7 @@ export abstract class BaseIndexDBService<T extends BaseModel> {
   }
 
   private salvarAPI(modelo: T) {
-    console.log('Mandando pra API.');
+	console.log('Mandando para a API.');
     this.http.post(this.apiUrl, modelo).subscribe({
       next: (item) => console.info(item),
       error: (err) => console.error(`Erro ao salvar ${this.nomeTabela}`, err),
@@ -79,7 +79,6 @@ export abstract class BaseIndexDBService<T extends BaseModel> {
 
   private async enviarItensdoIndexedDb() {
     const allmodelos: T[] = await this.table.toArray();
-    console.log(allmodelos.entries);
 
     allmodelos.forEach((item) => {
       this.salvarAPI(item);

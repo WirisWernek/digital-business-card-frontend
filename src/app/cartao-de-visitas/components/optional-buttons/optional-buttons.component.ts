@@ -50,7 +50,6 @@ export class OptionalButtonsComponent implements OnInit {
   }
 
   openModalNewsletter() {
-    console.log('Pois é não tem ainda, Deixe seu F no console!');
     this.bsModalRef = this.modalService.show(
       SubscribeNewsletterComponent,
       this.MODAL_OPTIONS
@@ -58,7 +57,6 @@ export class OptionalButtonsComponent implements OnInit {
   }
 
   openModalReview() {
-    console.log('Pois é não tem ainda, Deixe seu F no console!');
     this.bsModalRef = this.modalService.show(
       SendReviewComponent,
       this.MODAL_OPTIONS
