@@ -4,7 +4,7 @@ import { CartaoDeVisitasComponent } from './views/cartao-de-visitas/cartao-de-vi
 
 const routes: Routes = [
   { path: '', component: CartaoDeVisitasComponent },
-  { path: '**', pathMatch: 'full', redirectTo: '/' },
+  { path: '**', pathMatch: 'full', redirectTo: '' },
 ];
 
 @NgModule({

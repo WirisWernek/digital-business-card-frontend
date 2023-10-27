@@ -1,6 +1,6 @@
 import { BaseModel } from './Base.model';
 
-export class OptionalButtons extends BaseModel {
+export class OptionalButtonsModel extends BaseModel {
   pixEnable: boolean;
   chavePix: string;
   avaliacaoEnable: boolean;

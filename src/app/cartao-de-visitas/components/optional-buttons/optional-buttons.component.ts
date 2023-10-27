@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ClipboardService } from 'ngx-clipboard';
-import { OptionalButtons } from '../../models/OptionalButtons.model';
+import { OptionalButtonsModel } from '../../models/OptionalButtons.model';
 import { OptionalButtonsService } from '../../services/optional-buttons.service';
 import { SendEmailComponent } from '../modals/send-email/send-email.component';
 import { SendNotesComponent } from '../modals/send-notes/send-notes.component';
@@ -14,7 +14,7 @@ import { SubscribeNewsletterComponent } from '../modals/subscribe-newsletter/sub
   styleUrls: ['./optional-buttons.component.scss'],
 })
 export class OptionalButtonsComponent implements OnInit {
-  optionalButtons: OptionalButtons;
+  optionalButtons: OptionalButtonsModel;
   bsModalRef?: BsModalRef;
   MODAL_OPTIONS = {
     class: 'modal-lg modal-dialog-centered',
@@ -27,7 +27,7 @@ export class OptionalButtonsComponent implements OnInit {
     private clipboardService: ClipboardService,
     private modalService: BsModalService
   ) {
-    this.optionalButtons = new OptionalButtons();
+    this.optionalButtons = new OptionalButtonsModel();
   }
 
   ngOnInit(): void {

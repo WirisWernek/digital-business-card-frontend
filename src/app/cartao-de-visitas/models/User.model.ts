@@ -1,20 +1,15 @@
+import { ActionButtonModel } from './ActionButton.model';
 import { BaseModel } from './Base.model';
+import { LinkModel } from './Link.model';
+import { OptionalButtonsModel } from './OptionalButtons.model';
 
-export class UserModel extends BaseModel {
+export interface UserModel extends BaseModel {
   username: string;
   subtitle: string;
   profileImage: string;
 
-  constructor() {
-    super();
-    this.username = '';
-    this.subtitle = '';
-    this.profileImage = '';
-  }
-
-  build(username: string, subtitle: string, profileImage: string) {
-    this.username = username;
-    this.subtitle = subtitle;
-    this.profileImage = profileImage;
-  }
+  actionsButtons: ActionButtonModel[];
+  socialLinks: LinkModel[];
+  projectsLinks: LinkModel[];
+  optionalButtons: OptionalButtonsModel[];
 }
