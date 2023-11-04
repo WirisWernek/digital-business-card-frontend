@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionButtonModel } from '../../models/ActionButton.model';
 import { ContactLinkModel } from '../../models/ContactLink.model';
-import { ActionButtonsService } from '../../services/action-buttons.service';
 import { ContactLinksService } from '../../services/contact-links.service';
 
 @Component({
@@ -10,16 +8,13 @@ import { ContactLinksService } from '../../services/contact-links.service';
   styleUrls: ['./action-buttons.component.scss'],
 })
 export class ActionButtonsComponent implements OnInit {
-  actionsButtons: Array<ActionButtonModel> = [];
   contactLinks: ContactLinkModel = new ContactLinkModel();
 
   constructor(
-    private actionButtonService: ActionButtonsService,
     private contactLinkService: ContactLinksService
   ) {}
 
   ngOnInit(): void {
-    this.actionsButtons = this.actionButtonService.getAllActionsButtons();
     this.contactLinks = this.contactLinkService.getAllContactLinks();
   }
 
