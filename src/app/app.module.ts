@@ -25,6 +25,7 @@ import { SendNotesComponent } from './components/modals/send-notes/send-notes.co
 import { SendReviewComponent } from './components/modals/send-review/send-review.component';
 import { SubscribeNewsletterComponent } from './components/modals/subscribe-newsletter/subscribe-newsletter.component';
 import { OptionalButtonsComponent } from './components/optional-buttons/optional-buttons.component';
+import { OptionsComponent } from './components/options/options.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { OptionalButtonsComponent } from './components/optional-buttons/optional
     SendReviewComponent,
     SubscribeNewsletterComponent,
     SendNotesComponent,
+    OptionsComponent,
   ],
   imports: [
     BrowserModule,
