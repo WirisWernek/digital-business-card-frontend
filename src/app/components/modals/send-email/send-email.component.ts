@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { EmailModel } from 'src/app/cartao-de-visitas/models/Email.model';
-import { EmailService } from 'src/app/cartao-de-visitas/services/email.service';
+import { EmailModel } from 'src/app/models/Email.model';
+import { EmailService } from 'src/app/services/email.service';
+
 
 @Component({
   selector: 'app-send-email',

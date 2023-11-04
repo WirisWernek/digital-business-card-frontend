@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Cartão de Visitas Virtual';
+  typeVisible: string;
+
+  constructor() {
+    this.typeVisible = '1';
+  }
+
+  reciverResponse(response: string) {
+    this.typeVisible = response;
+  }
 }

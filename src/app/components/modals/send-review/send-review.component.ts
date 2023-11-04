@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { ReviewModel } from 'src/app/cartao-de-visitas/models/Review.model';
-import { SendReviewService } from 'src/app/cartao-de-visitas/services/send-review.service';
+import { ReviewModel } from 'src/app/models/Review.model';
+import { SendReviewService } from 'src/app/services/send-review.service';
+
 
 @Component({
   selector: 'app-send-review',

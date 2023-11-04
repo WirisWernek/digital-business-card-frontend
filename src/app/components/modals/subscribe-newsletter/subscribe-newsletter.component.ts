@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { NewsletterModel } from 'src/app/cartao-de-visitas/models/Newsletter.model';
-import { SubscribeNewsletterService } from 'src/app/cartao-de-visitas/services/subscribe-newsletter.service';
+import { NewsletterModel } from 'src/app/models/Newsletter.model';
+import { SubscribeNewsletterService } from 'src/app/services/subscribe-newsletter.service';
+
 
 
 @Component({

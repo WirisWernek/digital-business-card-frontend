@@ -1,1 +1,16 @@
-<router-outlet></router-outlet>
+<div class="top-bar"></div>
+<app-header (emmitTypeVisible)="reciverResponse($event)"></app-header>
+<hr>
+<app-action-buttons></app-action-buttons>
+<hr>
+
+<div *ngIf="typeVisible === '1'">
+	<app-list-social-links></app-list-social-links>
+	<app-optional-buttons></app-optional-buttons>
+</div>
+
+<div *ngIf="typeVisible === '2'">
+	<app-list-project-links></app-list-project-links>
+</div>
+
+<app-footer></app-footer>
