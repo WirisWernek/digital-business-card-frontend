@@ -1,21 +1,15 @@
-.telefone {
-  height: 16vw;
+ul {
+  list-style-type: none;
 }
 
-.whatsapp {
-  height: 15vw;
-}
-
+.telefone,
 .email {
   height: 16vw;
 }
 
+.whatsapp,
 .download {
   height: 15vw;
-}
-
-ul {
-  list-style-type: none;
 }
 
 .actionButtons {
@@ -32,14 +26,11 @@ ul {
     height: 9vw;
   }
 
-  .whatsapp {
+  .whatsapp,
+  .download {
     height: 8vw;
   }
 
-  .download {
-    height: 7.4vw;
-    margin-top: 0;
-  }
   .actionButtons {
     margin: 0 auto 0 auto;
     width: 50%;
