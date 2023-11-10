@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ClipboardService } from 'ngx-clipboard';
-import { OptionalButtonsModel } from '../../models/OptionalButtons.model';
-import { OptionalButtonsService } from '../../services/optional-buttons.service';
+import { OptionalButtonsModel } from 'src/app/models/OptionalButtons.model';
+import { OptionalButtonsService } from 'src/app/services/optional-buttons.service';
 import { SendEmailComponent } from '../modals/send-email/send-email.component';
 import { SendNotesComponent } from '../modals/send-notes/send-notes.component';
 import { SendReviewComponent } from '../modals/send-review/send-review.component';
