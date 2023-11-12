@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { ActionButtonsComponent } from './components/action-buttons/action-buttons.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { OptionsComponent } from './components/options/options.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { OptionsComponent } from './components/options/options.component';
     HeaderComponent,
     ActionButtonsComponent,
     FooterComponent,
-    OptionsComponent,
   ],
   imports: [
     BrowserModule,
