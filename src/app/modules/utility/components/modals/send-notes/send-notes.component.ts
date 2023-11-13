@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { EmailModel } from 'src/app/models/Email.model';
 import { EmailService } from 'src/app/services/email.service';
-
+import { ToastrCustomizedService } from 'src/app/services/toastr-customized.service';
 
 @Component({
   selector: 'app-send-notes',
@@ -21,7 +21,8 @@ export class SendNotesComponent {
   constructor(
     public modalRef: BsModalRef,
     private formBuilder: FormBuilder,
-    private emailService: EmailService
+    private emailService: EmailService,
+    private toastrCustomizedService: ToastrCustomizedService
   ) {
     this.noteForm = this.formBuilder.group({
       emailDestino: [
@@ -51,6 +52,7 @@ export class SendNotesComponent {
       email.conteudo = this.noteForm.get('conteudo')?.value;
 
       this.emailService.sendNote(email);
+      this.toastrCustomizedService.sucesso('Nota enviada com sucesso');
       this.modalRef.hide();
     } else {
       alert('Há campos obrigatórios que não foram preenchidos!');
@@ -71,7 +73,8 @@ export class SendNotesComponent {
     this.emailDestinoValido = false;
 
     this.emailDestinoValido =
-      this.noteForm.controls['emailDestino'].touched && (!!this.noteForm.controls['emailDestino'].errors === false);
+      this.noteForm.controls['emailDestino'].touched &&
+      !!this.noteForm.controls['emailDestino'].errors === false;
 
     if (this.noteForm.get('emailDestino')?.value.trim() === '') {
       this.emailDestinoValido = false;
@@ -80,7 +83,8 @@ export class SendNotesComponent {
 
   validateAssunto() {
     this.assuntoValido =
-      this.noteForm.controls['assunto'].touched && (!!this.noteForm.controls['assunto'].errors === false);
+      this.noteForm.controls['assunto'].touched &&
+      !!this.noteForm.controls['assunto'].errors === false;
 
     if (this.noteForm.get('assunto')?.value.trim() === '') {
       this.assuntoValido = false;
@@ -89,7 +93,8 @@ export class SendNotesComponent {
 
   validateConteudo() {
     this.conteudoValido =
-      this.noteForm.controls['conteudo'].touched && (!!this.noteForm.controls['conteudo'].errors === false);
+      this.noteForm.controls['conteudo'].touched &&
+      !!this.noteForm.controls['conteudo'].errors === false;
 
     if (this.noteForm.get('conteudo')?.value.trim() === '') {
       this.conteudoValido = false;

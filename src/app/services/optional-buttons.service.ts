@@ -13,8 +13,8 @@ export class OptionalButtonsService {
 
   getAllOptionButtons() {
     this.optionalButtons.build(
-      false,
-      '7733cb5d-2e77-40ff-9b44-f3bf578cf988',
+      true,
+      'be9d3572-5689-48d1-b2c8-13d105c32686',
       true,
       true,
       true,

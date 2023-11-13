@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { EmailModel } from 'src/app/models/Email.model';
 import { EmailService } from 'src/app/services/email.service';
-
+import { ToastrCustomizedService } from 'src/app/services/toastr-customized.service';
 
 @Component({
   selector: 'app-send-email',
@@ -21,7 +21,8 @@ export class SendEmailComponent {
   constructor(
     public modalRef: BsModalRef,
     private formBuilder: FormBuilder,
-    private emailService: EmailService
+    private emailService: EmailService,
+    private toastrCustomizedService: ToastrCustomizedService
   ) {
     this.emailForm = this.formBuilder.group({
       emailCopia: [
@@ -51,6 +52,7 @@ export class SendEmailComponent {
       email.conteudo = this.emailForm.get('conteudo')?.value;
 
       this.emailService.sendEmailRapido(email);
+      this.toastrCustomizedService.sucesso('Email enviado com sucesso');
       this.modalRef.hide();
     } else {
       alert('Há campos obrigatórios que não foram preenchidos!');
@@ -71,7 +73,8 @@ export class SendEmailComponent {
     this.emailCopiaValido = false;
 
     this.emailCopiaValido =
-      this.emailForm.controls['emailCopia'].touched && (!!this.emailForm.controls['emailCopia'].errors === false);
+      this.emailForm.controls['emailCopia'].touched &&
+      !!this.emailForm.controls['emailCopia'].errors === false;
 
     if (this.emailForm.get('emailCopia')?.value.trim() === '') {
       this.emailCopiaValido = false;
@@ -80,7 +83,8 @@ export class SendEmailComponent {
 
   validateAssunto() {
     this.assuntoValido =
-      this.emailForm.controls['assunto'].touched && (!!this.emailForm.controls['assunto'].errors === false);
+      this.emailForm.controls['assunto'].touched &&
+      !!this.emailForm.controls['assunto'].errors === false;
 
     if (this.emailForm.get('assunto')?.value.trim() === '') {
       this.assuntoValido = false;
@@ -89,7 +93,8 @@ export class SendEmailComponent {
 
   validateConteudo() {
     this.conteudoValido =
-      this.emailForm.controls['conteudo'].touched && (!!this.emailForm.controls['conteudo'].errors === false);
+      this.emailForm.controls['conteudo'].touched &&
+      !!this.emailForm.controls['conteudo'].errors === false;
 
     if (this.emailForm.get('conteudo')?.value.trim() === '') {
       this.conteudoValido = false;
