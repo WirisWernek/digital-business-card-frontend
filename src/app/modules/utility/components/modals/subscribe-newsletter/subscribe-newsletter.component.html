@@ -3,6 +3,14 @@
 </div>
 <form [formGroup]="newsletterForm" class="modal-body">
 	<div class="mb-3">
+		<label for="nomeFormInput" class="form-label">Nome</label>
+		<input [ngClass]=" nomeValido ? 'form-control' : 'form-control is-invalid'" formControlName="nome"
+			type="email" id="nomeFormInput" placeholder="name@example.com" (blur)="validateNome()">
+		<ng-container *ngIf="!nomeValido">
+			<label for="nomeFormInput" class="form-label text-danger">O nome é obrigatório!</label>
+		</ng-container>
+	</div>
+	<div class="mb-3">
 		<label for="emailFormInput" class="form-label">Seu Email</label>
 		<input type="email" [ngClass]=" emailValido ? 'form-control' : 'form-control is-invalid'" id="emailFormInput" placeholder="name@example.com" formControlName="email" (blur)="validate()">
 		<ng-container *ngIf="!emailValido">

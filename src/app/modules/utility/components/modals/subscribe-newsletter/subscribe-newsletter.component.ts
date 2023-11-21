@@ -4,8 +4,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { NewsletterModel } from 'src/app/models/Newsletter.model';
 import { SubscribeNewsletterService } from 'src/app/services/subscribe-newsletter.service';
 
-
-
 @Component({
   selector: 'app-subscribe-newsletter',
   templateUrl: './subscribe-newsletter.component.html',
@@ -14,6 +12,7 @@ import { SubscribeNewsletterService } from 'src/app/services/subscribe-newslette
 export class SubscribeNewsletterComponent {
   newsletterForm!: FormGroup;
   emailValido: boolean;
+  nomeValido: boolean;
 
   constructor(
     public modalRef: BsModalRef,
@@ -21,6 +20,7 @@ export class SubscribeNewsletterComponent {
     private newsletterService: SubscribeNewsletterService
   ) {
     this.newsletterForm = this.formBuilder.group({
+      nome: ['', Validators.required],
       email: [
         '',
         [
@@ -30,6 +30,7 @@ export class SubscribeNewsletterComponent {
       ],
     });
 
+    this.nomeValido = true;
     this.emailValido = true;
   }
 
@@ -38,8 +39,9 @@ export class SubscribeNewsletterComponent {
 
     if (this.emailValido) {
       const newsletter = new NewsletterModel();
+      const nome = this.newsletterForm.get('nome')?.value;
       const email = this.newsletterForm.get('email')?.value;
-      newsletter.build(email);
+      newsletter.build(nome, email);
       this.newsletterService.salvar(newsletter);
       this.modalRef.hide();
     } else {
@@ -52,8 +54,24 @@ export class SubscribeNewsletterComponent {
   }
 
   validate() {
+    this.validateNome();
+    this.validateEmail();
+  }
+
+  validateNome() {
+    this.nomeValido =
+      this.newsletterForm.controls['nome'].touched &&
+      !!this.newsletterForm.controls['nome'].errors === false;
+
+    if (this.newsletterForm.get('nome')?.value.trim() === '') {
+      this.nomeValido = false;
+    }
+  }
+
+  validateEmail() {
     this.emailValido =
-      this.newsletterForm.controls['email'].touched && (!!this.newsletterForm.controls['email'].errors === false);
+      this.newsletterForm.controls['email'].touched &&
+      !!this.newsletterForm.controls['email'].errors === false;
 
     if (this.newsletterForm.get('email')?.value.trim() === '') {
       this.emailValido = false;
