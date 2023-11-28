@@ -1,0 +1,33 @@
+<section class="row justify-content-center text-center ">
+	<h3 class="col">Utilidades</h3>
+</section>
+
+<section class="row justify-content-center align-items-center g-2 text-center mt-2">
+	<div *ngIf="optionalButtons.pixEnable" class="col-11 button" (click)="copiarChavePix()" (keydown)="copiarChavePix()" tabindex="">
+		<span>Copiar chave pix</span>
+	</div>
+
+	<div *ngIf="optionalButtons.avaliacaoEnable" class="col-11 button" (click)="openModalReview()" (keydown)="openModalReview()" tabindex="">
+		<span>Avalie meu trabalho</span>
+	</div>
+
+	<div *ngIf="optionalButtons.newsletterEnable" class="col-11 button" (click)="openModalNewsletter()" (keydown)="openModalNewsletter()" tabindex="">
+		<span>Se inscreva em nossa newsletter</span>
+	</div>
+
+	<div *ngIf="optionalButtons.emailRapidoEnable" class="col-11 button" (click)="openModalEmail()" (keydown)="openModalEmail()" tabindex="">
+		<span>Enviar Email</span>
+	</div>
+
+	<div *ngIf="optionalButtons.anotacaoEnable" class="col-11 button" (click)="openModalAnotacao()" (keydown)="openModalAnotacao()" tabindex="">
+		<span>Enviar Anotação</span>
+	</div>
+	
+	<div *ngIf="optionalButtons.compartilharEnable" class="col-11 button" (click)="compartilhar()" (keydown)="compartilhar()" tabindex="">
+		<span>Compartilhar</span>
+	</div>
+
+	<div class="col-11 button" routerLink="/" tabindex="">
+		<span>Voltar</span>
+	</div>
+</section>

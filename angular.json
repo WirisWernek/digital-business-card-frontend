@@ -31,7 +31,6 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -45,8 +44,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1.5mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -54,6 +53,14 @@
                   "maximumError": "4kb"
                 }
               ],
+			  "optimization": {
+				"scripts": true,
+				"styles": {
+				  "minify": true,
+				  "inlineCritical": false
+				},
+				"fonts": true
+			  },
               "outputHashing": "all"
             },
             "development": {

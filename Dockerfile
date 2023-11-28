@@ -1,4 +1,4 @@
-FROM node:lts-alpine as angular
+FROM node:lts-alpine AS angular
 WORKDIR /app
 COPY package.json /app
 RUN npm install --silent

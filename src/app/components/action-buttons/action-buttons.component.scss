@@ -1,0 +1,39 @@
+ul {
+  list-style-type: none;
+}
+
+.telefone,
+.email {
+  height: 16vw;
+}
+
+.whatsapp,
+.download {
+  height: 15vw;
+}
+
+.actionButtons {
+  margin-right: 2vh;
+  align-items: center !important;
+}
+
+@media (min-width: 700px) {
+  ul {
+    padding: 0;
+  }
+  .telefone,
+  .email {
+    height: 9vw;
+  }
+
+  .whatsapp,
+  .download {
+    height: 8vw;
+  }
+
+  .actionButtons {
+    margin: 0 auto 0 auto;
+    width: 50%;
+    align-items: center !important;
+  }
+}
