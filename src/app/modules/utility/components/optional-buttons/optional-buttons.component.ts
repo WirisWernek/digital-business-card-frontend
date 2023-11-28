@@ -3,6 +3,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ClipboardService } from 'ngx-clipboard';
 import { OptionalButtonsModel } from 'src/app/models/OptionalButtons.model';
 import { OptionalButtonsService } from 'src/app/services/optional-buttons.service';
+import { ToastrCustomizedService } from 'src/app/services/toastr-customized.service';
 import { SendEmailComponent } from '../modals/send-email/send-email.component';
 import { SendNotesComponent } from '../modals/send-notes/send-notes.component';
 import { SendReviewComponent } from '../modals/send-review/send-review.component';
@@ -16,16 +17,19 @@ import { SubscribeNewsletterComponent } from '../modals/subscribe-newsletter/sub
 export class OptionalButtonsComponent implements OnInit {
   optionalButtons: OptionalButtonsModel;
   bsModalRef?: BsModalRef;
-  MODAL_OPTIONS = {
+  DEFAULT_MODAL_OPTIONS = {
     class: 'modal-lg modal-dialog-centered',
-    ignoreBackdropClick: true,
+    ignoreBackdropClick: false,
+	backdrop: true,
     keyboard: true,
+	animated: true
   };
 
   constructor(
     private optionalButtonsService: OptionalButtonsService,
     private clipboardService: ClipboardService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+	private toastrCustomizedService: ToastrCustomizedService
   ) {
     this.optionalButtons = new OptionalButtonsModel();
   }
@@ -35,39 +39,36 @@ export class OptionalButtonsComponent implements OnInit {
   }
 
   copiarChavePix() {
-    return this.clipboardService.copy(this.optionalButtons.chavePix);
-  }
-
-  openModalEmail() {
-    this.bsModalRef = this.modalService.show(SendEmailComponent, {
-      class: 'modal-lg modal-dialog-centered',
-      ignoreBackdropClick: true,
-      keyboard: true,
-      initialState: {
-        defaultEmail: this.optionalButtons.emailRapidoEndereco,
-      },
-    });
+	this.clipboardService.copy(this.optionalButtons.chavePix);
+	this.toastrCustomizedService.sucesso("Chave Copiada com Sucesso");
   }
 
   openModalNewsletter() {
     this.bsModalRef = this.modalService.show(
       SubscribeNewsletterComponent,
-      this.MODAL_OPTIONS
+      this.DEFAULT_MODAL_OPTIONS
     );
   }
 
   openModalReview() {
     this.bsModalRef = this.modalService.show(
       SendReviewComponent,
-      this.MODAL_OPTIONS
+      this.DEFAULT_MODAL_OPTIONS
     );
+  }
+
+  openModalEmail() {
+    this.bsModalRef = this.modalService.show(SendEmailComponent, {
+      ...this.DEFAULT_MODAL_OPTIONS,
+      initialState: {
+        defaultEmail: this.optionalButtons.emailRapidoEndereco,
+      },
+    });
   }
 
   openModalAnotacao() {
     this.bsModalRef = this.modalService.show(SendNotesComponent, {
-      class: 'modal-lg modal-dialog-centered',
-      ignoreBackdropClick: true,
-      keyboard: true,
+      ...this.DEFAULT_MODAL_OPTIONS,
       initialState: {
         defaultEmail: this.optionalButtons.emailRapidoEndereco,
       },
