@@ -1,4 +1,4 @@
-# Digital Visit Card ![version](https://img.shields.io/badge/version-1.3.1-blue)
+# Digital Visit Card ![version](https://img.shields.io/badge/version-1.4.1-blue)
 
 ## Sobre
 
@@ -10,8 +10,7 @@ Segue abaixo uma prévia da aplicação.
 
 <h2 align="center">Preview Mobile</h2>
 <div align="center">
-	<img width="400" style="margin-right: 3rem;" src="./docs/images/iphone-1.png">
-	<img width="400" src="./docs/images/iphone-2.png">
+	<img width="400" src="./docs/images/mobile.png">
 </div>
 
 <h2 align="center">Preview Desktop</h2>
@@ -19,10 +18,6 @@ Segue abaixo uma prévia da aplicação.
 	<img width="800" src="./docs/images/macbook.png">
 </div>
 
-<h2 align="center">Preview Tablet</h2>
-<div align="center">
-	<img width="700" src="./docs/images/ipad.png">
-</div>
 
 
 ## Como executar esta aplicação?
@@ -44,7 +39,7 @@ Por ser uma aplicação focada em mobile para uma melhor experiência é recomen
 Também é possível utilizar a extensão [Mobile Simulator](https://chrome.google.com/webstore/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk) disponível para Google Chrome e Firefox.
 
 ## Versões dos recursos da aplicação
-- angular/cli <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-16.2.9-blue"/>
+- angular/cli <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-16.2.10-blue"/>
 - node <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-16.20.1-blue"/>
 - typescript <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-5.1.6-blue"/>
 - bootstrap <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-5.3.1-blue"/>
