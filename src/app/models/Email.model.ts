@@ -1,11 +1,13 @@
 import { BaseModel } from "./Base.model";
 
 export class EmailModel extends BaseModel {
+	para: string;
+	remetente: string;
+	emCopia: string;
+	titulo: string;
+	assunto: string;
+	agradecimento: string;
   conteudo: string;
-  assunto: string;
-  para: string;
-  remetente: string;
-  emCopia: string;
 
   constructor() {
 	super();
@@ -14,14 +16,18 @@ export class EmailModel extends BaseModel {
     this.para = '';
 	this.remetente = '';
 	this.emCopia = '';
+	this.titulo = '';
+	this.agradecimento = '';
   }
 
-  build(conteudo: string, assunto: string, para: string, remetente: string, emCopia: string) {
+  build(conteudo: string, assunto: string, para: string, remetente: string, emCopia: string, titulo: string, agradecimento: string) {
     this.conteudo = conteudo;
     this.assunto = assunto;
     this.para = para;
 	this.remetente = remetente;
 	this.emCopia = emCopia;
+	this.titulo = titulo;
+	this.agradecimento = agradecimento;
     return this;
   }
 }
