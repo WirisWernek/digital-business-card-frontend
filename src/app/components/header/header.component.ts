@@ -7,6 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() emmitTypeVisible = new EventEmitter<string>();
+  
   ultimaAcao: string;
   nome: string;
   subtitle: string;
@@ -15,7 +16,7 @@ export class HeaderComponent {
   constructor() {
     this.ultimaAcao = '1';
     this.nome = 'Wiris Wernek';
-    this.subtitle = 'Backend Web Developer';
+    this.subtitle = 'Full Stack Web Developer';
     this.imagemPerfil = '../../../../assets/images/profile-image.jpeg';
   }
 

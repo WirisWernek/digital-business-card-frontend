@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, isDevMode } from '@angular/core';
+import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { BrowserModule } from '@angular/platform-browser';
@@ -40,6 +41,7 @@ import { HeaderComponent } from './components/header/header.component';
     }),
     provideFirebaseApp(() => initializeApp(environment.FIREBASECONFIG)),
     provideFirestore(() => getFirestore()),
+	provideAnalytics(() => getAnalytics())
   ],
   providers: [],
   bootstrap: [AppComponent],
