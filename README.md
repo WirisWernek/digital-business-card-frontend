@@ -1,4 +1,4 @@
-# Digital Visit Card ![version](https://img.shields.io/badge/version-1.4.1-blue)
+# Digital Visit Card ![version](https://img.shields.io/badge/version-1.5.0-blue)
 
 ## Sobre
 
@@ -39,7 +39,7 @@ Por ser uma aplicação focada em mobile para uma melhor experiência é recomen
 Também é possível utilizar a extensão [Mobile Simulator](https://chrome.google.com/webstore/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk) disponível para Google Chrome e Firefox.
 
 ## Versões dos recursos da aplicação
-- angular/cli <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-16.2.10-blue"/>
+- angular/cli <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-16.2.11-blue"/>
 - node <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-16.20.1-blue"/>
 - typescript <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-5.1.6-blue"/>
-- bootstrap <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-5.3.1-blue"/>
+- bootstrap <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-5.3.2-blue"/>
