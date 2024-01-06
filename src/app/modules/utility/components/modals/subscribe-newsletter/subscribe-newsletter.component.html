@@ -5,7 +5,7 @@
 	<div class="mb-3">
 		<label for="nomeFormInput" class="form-label">Nome</label>
 		<input [ngClass]=" nomeValido ? 'form-control' : 'form-control is-invalid'" formControlName="nome"
-			type="email" id="nomeFormInput" placeholder="name@example.com" (blur)="validateNome()">
+			type="text" id="nomeFormInput" placeholder="Bruno(a)" (blur)="validateNome()">
 		<ng-container *ngIf="!nomeValido">
 			<label for="nomeFormInput" class="form-label text-danger">O nome é obrigatório!</label>
 		</ng-container>

@@ -1,33 +1,31 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EmailModel } from 'src/app/models/Email.model';
 import { environment } from 'src/environments/environment';
-import { EmailModel } from '../models/Email.model';
-import { AnotacaoService } from './anotacao.service';
-import { EmailRapidoService } from './email-rapido.service';
+import { AnotacaoStore } from './anotacao.store';
+import { EmailRapidoStore } from './email-rapido.store';
 
-@Injectable({
-	providedIn: 'root',
-})
-export class EmailService {
+@Injectable()
+export class EmailStore {
 	private base_url: string;
 
 	constructor(
 		private http: HttpClient,
-		private anotacaoService: AnotacaoService,
-		private emailRapidoService: EmailRapidoService
+		private anotacaoStore: AnotacaoStore,
+		private emailRapidoStore: EmailRapidoStore
 	) {
 		this.base_url = environment.API_URL;
 	}
 
 	sendEmailRapido(email: EmailModel) {
 		const emaiRapido = this.generateConteudoEmailRapido(email);
-		this.emailRapidoService.salvar(emaiRapido);
+		this.emailRapidoStore.salvar(emaiRapido);
 		this.send(emaiRapido);
 	}
 
 	sendNote(email: EmailModel) {
 		const nota = this.generateConteudoNote(email);
-		this.anotacaoService.salvar(nota);
+		this.anotacaoStore.salvar(nota);
 		this.send(nota);
 	}
 

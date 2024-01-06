@@ -9,24 +9,35 @@ import { SendNotesComponent } from './components/modals/send-notes/send-notes.co
 import { SendReviewComponent } from './components/modals/send-review/send-review.component';
 import { SubscribeNewsletterComponent } from './components/modals/subscribe-newsletter/subscribe-newsletter.component';
 import { OptionalButtonsComponent } from './components/optional-buttons/optional-buttons.component';
+import { AnotacaoStore } from './stores/anotacao.store';
+import { EmailRapidoStore } from './stores/email-rapido.store';
+import { EmailStore } from './stores/email.store';
+import { SendReviewStore } from './stores/send-review.store';
+import { SubscribeNewsletterStore } from './stores/subscribe-newsletter.store';
 import { UtilityRoutingModule } from './utility-routing.module';
 
 @NgModule({
-  declarations: [
-	SendEmailComponent,
-    SendReviewComponent,
-    SendNotesComponent,
-    SubscribeNewsletterComponent,
-	OptionalButtonsComponent,
-  ],
-  imports: [
-    CommonModule,
-	FormsModule,
-    ReactiveFormsModule,
-	UtilityRoutingModule,
-    ModalModule.forChild(),
-    RatingModule.forRoot(),
-
-  ]
+	declarations: [
+		SendEmailComponent,
+		SendReviewComponent,
+		SendNotesComponent,
+		SubscribeNewsletterComponent,
+		OptionalButtonsComponent,
+	],
+	imports: [
+		CommonModule,
+		FormsModule,
+		ReactiveFormsModule,
+		UtilityRoutingModule,
+		ModalModule.forChild(),
+		RatingModule.forRoot(),
+	],
+	providers: [
+		AnotacaoStore,
+		EmailRapidoStore,
+		EmailStore,
+		SendReviewStore,
+		SubscribeNewsletterStore,
+	],
 })
-export class UtilityModule { }
+export class UtilityModule {}

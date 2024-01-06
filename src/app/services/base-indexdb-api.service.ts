@@ -5,93 +5,86 @@ import { BaseModel } from '../models/Base.model';
 import { ConnectionService } from './connection.service';
 
 @Injectable({
-  providedIn: 'root',
+	providedIn: 'root',
 })
 export abstract class BaseIndexDBServiceAPI<T extends BaseModel> {
-  private database: Dexie;
-  private table: Dexie.Table<T, number>;
-  protected http: HttpClient;
-  protected connectionService: ConnectionService;
+	private database: Dexie;
+	private table: Dexie.Table<T, number>;
+	protected http: HttpClient;
+	protected connectionService: ConnectionService;
 
-  constructor(
-    protected injector: Injector,
-    protected nomeTabela: string,
-    protected apiUrl: string
-  ) {
-    this.http = this.injector.get(HttpClient);
-    this.connectionService = this.injector.get(ConnectionService);
-    this.database = this.criarDatabase();
-    this.table = this.database.table(this.nomeTabela);
-    this.registrarEventos(this.connectionService);
-  }
+	constructor(
+		protected injector: Injector,
+		protected nomeTabela: string,
+		protected apiUrl: string
+	) {
+		this.http = this.injector.get(HttpClient);
+		this.connectionService = this.injector.get(ConnectionService);
+		this.database = this.criarDatabase();
+		this.table = this.database.table(this.nomeTabela);
+		this.registrarEventos(this.connectionService);
+	}
 
-  private criarDatabase() {
-    const database = new Dexie('database');
-    database.version(3).stores({
-      [this.nomeTabela]: '++id',
-    });
+	private criarDatabase() {
+		const database = new Dexie('database');
+		database.version(3).stores({
+			[this.nomeTabela]: '++id',
+		});
 
-    return database;
-  }
+		return database;
+	}
 
-  private registrarEventos(connectionService: ConnectionService) {
-    connectionService.trocaConexao.subscribe((online) => {
-      if (online) {
-        console.log('Online. Enviando os itens do IndexedDb para a API');
-        this.enviarItensdoIndexedDb();
-      } else {
-        console.log('Offline. Salvando no IndexedDb');
-      }
-    });
-  }
+	private registrarEventos(connectionService: ConnectionService) {
+		connectionService.trocaConexao.subscribe((online) => {
+			if (online) {
+				console.log('Online. Enviando os itens do IndexedDb para a API');
+				this.enviarItensdoIndexedDb();
+			} else {
+				console.log('Offline. Salvando no IndexedDb');
+			}
+		});
+	}
 
-  salvar(modelo: T) {
-    if (this.connectionService.isOnline) {
-      this.salvarAPI(modelo);
-    } else {
-      this.salvarIndexedDb(modelo);
-    }
-  }
+	salvar(modelo: T) {
+		if (this.connectionService.isOnline) {
+			this.salvarAPI(modelo);
+		} else {
+			this.salvarIndexedDb(modelo);
+		}
+	}
 
-  private salvarAPI(modelo: T) {
-	console.log('Mandando para a API.');
-    this.http.post(this.apiUrl, modelo).subscribe({
-      next: (item) => console.info(item),
-      error: (err) => console.error(`Erro ao salvar ${this.nomeTabela}`, err),
-      complete: () => alert(`${this.nomeTabela} salvo com sucesso!`),
-    });
-  }
+	private salvarAPI(modelo: T) {
+		console.log('Mandando para a API.');
+		this.http.post(this.apiUrl, modelo).subscribe({
+			next: (item) => console.info(item),
+			error: (err) => console.error(`Erro ao salvar ${this.nomeTabela}`, err),
+			complete: () => alert(`${this.nomeTabela} salvo com sucesso!`),
+		});
+	}
 
-  private salvarIndexedDb(modelo: T) {
-    this.table
-      .add(modelo)
-      .then(async () => {
-        const allmodelos: T[] = await this.table.toArray();
-        console.log(
-          `Novo item ${this.nomeTabela} foi salvo no IndexedDb`,
-          allmodelos
-        );
-      })
-      .catch((err) =>
-        console.log(`Erro ao incluir ${this.nomeTabela} no IndexedDb`, err)
-      );
-  }
+	private salvarIndexedDb(modelo: T) {
+		this.table
+			.add(modelo)
+			.then(async () => {
+				const allmodelos: T[] = await this.table.toArray();
+				console.log(`Novo item ${this.nomeTabela} foi salvo no IndexedDb`, allmodelos);
+			})
+			.catch((err) => console.log(`Erro ao incluir ${this.nomeTabela} no IndexedDb`, err));
+	}
 
-  private async enviarItensdoIndexedDb() {
-    const allmodelos: T[] = await this.table.toArray();
+	private async enviarItensdoIndexedDb() {
+		const allmodelos: T[] = await this.table.toArray();
 
-    allmodelos.forEach((item) => {
-      this.salvarAPI(item);
+		allmodelos.forEach((item) => {
+			this.salvarAPI(item);
 
-      this.table.delete(item.id).then(() => {
-        console.log(
-          `${this.nomeTabela} com ID ${item?.id} deletado do IndexedDb`
-        );
-      });
-    });
-  }
+			this.table.delete(item.id).then(() => {
+				console.log(`${this.nomeTabela} com ID ${item?.id} deletado do IndexedDb`);
+			});
+		});
+	}
 
-  listar() {
-    return this.http.get<T[]>(this.apiUrl);
-  }
+	listar() {
+		return this.http.get<T[]>(this.apiUrl);
+	}
 }
