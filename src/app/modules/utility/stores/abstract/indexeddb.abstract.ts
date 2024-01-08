@@ -1,13 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, Injector } from '@angular/core';
+import { Injector } from '@angular/core';
 import Dexie from 'dexie';
-import { BaseModel } from '../models/Base.model';
-import { ConnectionService } from './connection.service';
+import { BaseModel } from 'src/app/models/Base.model';
+import { ConnectionService } from '../../services/connection.service';
 
-@Injectable({
-	providedIn: 'root',
-})
-export abstract class BaseIndexDBServiceAPI<T extends BaseModel> {
+export abstract class IndexedDBAbstract<T extends BaseModel> {
 	private database: Dexie;
 	private table: Dexie.Table<T, number>;
 	protected http: HttpClient;

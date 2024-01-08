@@ -1,9 +1,9 @@
 import { Injectable, Injector } from '@angular/core';
 import { NewsletterModel } from 'src/app/models/Newsletter.model';
-import { BaseIndexdbFirebaseService } from 'src/app/services/base-indexdb-firebase.service';
+import { FirebaseIndexedDBAbstract } from './abstract/firebase-indexedb.abstract';
 
 @Injectable()
-export class SubscribeNewsletterStore extends BaseIndexdbFirebaseService<NewsletterModel> {
+export class SubscribeNewsletterStore extends FirebaseIndexedDBAbstract<NewsletterModel> {
 	constructor(protected injectable: Injector) {
 		super(injectable, 'newsletter');
 	}

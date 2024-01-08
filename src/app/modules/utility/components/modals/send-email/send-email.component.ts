@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { EmailModel } from 'src/app/models/Email.model';
-import { ToastrCustomizedService } from 'src/app/services/toastr-customized.service';
+import { ToastrCustomizedService } from '../../../services/toastr-customized.service';
 import { EmailStore } from '../../../stores/email.store';
 
 @Component({

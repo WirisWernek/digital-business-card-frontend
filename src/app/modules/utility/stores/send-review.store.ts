@@ -1,9 +1,9 @@
 import { Injectable, Injector } from '@angular/core';
 import { ReviewModel } from 'src/app/models/Review.model';
-import { BaseIndexdbFirebaseService } from 'src/app/services/base-indexdb-firebase.service';
+import { FirebaseIndexedDBAbstract } from './abstract/firebase-indexedb.abstract';
 
 @Injectable()
-export class SendReviewStore extends BaseIndexdbFirebaseService<ReviewModel> {
+export class SendReviewStore extends FirebaseIndexedDBAbstract<ReviewModel> {
 	constructor(protected injectable: Injector) {
 		super(injectable, 'reviews');
 	}

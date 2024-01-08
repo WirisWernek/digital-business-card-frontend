@@ -9,6 +9,9 @@ import { SendNotesComponent } from './components/modals/send-notes/send-notes.co
 import { SendReviewComponent } from './components/modals/send-review/send-review.component';
 import { SubscribeNewsletterComponent } from './components/modals/subscribe-newsletter/subscribe-newsletter.component';
 import { OptionalButtonsComponent } from './components/optional-buttons/optional-buttons.component';
+import { ConnectionService } from './services/connection.service';
+import { OptionalButtonsService } from './services/optional-buttons.service';
+import { ToastrCustomizedService } from './services/toastr-customized.service';
 import { AnotacaoStore } from './stores/anotacao.store';
 import { EmailRapidoStore } from './stores/email-rapido.store';
 import { EmailStore } from './stores/email.store';
@@ -38,6 +41,9 @@ import { UtilityRoutingModule } from './utility-routing.module';
 		EmailStore,
 		SendReviewStore,
 		SubscribeNewsletterStore,
+		OptionalButtonsService,
+		ToastrCustomizedService,
+		ConnectionService,
 	],
 })
 export class UtilityModule {}

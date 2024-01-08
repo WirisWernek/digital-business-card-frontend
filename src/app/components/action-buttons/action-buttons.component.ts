@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactLinksService } from 'src/app/shared/services/contact-links.service';
 import { ContactLinkModel } from '../../models/ContactLink.model';
-import { ContactLinksService } from '../../services/contact-links.service';
+
 
 @Component({
   selector: 'app-action-buttons',

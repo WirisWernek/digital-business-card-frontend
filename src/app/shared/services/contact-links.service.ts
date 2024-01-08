@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ContactLinkModel } from '../models/ContactLink.model';
+import { ContactLinkModel } from 'src/app/models/ContactLink.model';
+
 
 @Injectable({
 	providedIn: 'root',

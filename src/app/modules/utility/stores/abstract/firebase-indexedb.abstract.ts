@@ -1,13 +1,11 @@
-import { Inject, Injectable, Injector } from '@angular/core';
+import { Inject, Injector } from '@angular/core';
 import Dexie from 'dexie';
-import { BaseModel } from '../models/Base.model';
-import { ConnectionService } from './connection.service';
-import { FirebaseService } from './firebase.service';
+import { BaseModel } from 'src/app/models/Base.model';
+import { ConnectionService } from '../../services/connection.service';
+import { FirebaseAbstract } from './firebase.abstract';
 
-@Injectable({
-	providedIn: 'root',
-})
-export class BaseIndexdbFirebaseService<T extends BaseModel> extends FirebaseService<T> {
+
+export abstract class FirebaseIndexedDBAbstract<T extends BaseModel> extends FirebaseAbstract<T> {
 	private database: Dexie;
 	private table: Dexie.Table<T, number>;
 	protected connectionService: ConnectionService;
