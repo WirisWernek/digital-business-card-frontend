@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ClipboardService } from 'ngx-clipboard';
-import { take } from 'rxjs';
 import { OptionalButtonsModel } from 'src/app/models/OptionalButtons.model';
 import { OptionalButtonsService } from '../../services/optional-buttons.service';
 import { ToastrCustomizedService } from '../../services/toastr-customized.service';
@@ -33,12 +32,12 @@ export class OptionalButtonsComponent implements OnInit {
 		private toastrCustomizedService: ToastrCustomizedService
 	) {
 		this.optionalButtons = new OptionalButtonsModel();
+		
+
 	}
 
 	ngOnInit(): void {
-		this.optionalButtonsService.getAllOptionButtons().pipe(take(1)).subscribe(options => {
-			this.optionalButtons = options;
-		});
+		this.optionalButtons = this.optionalButtonsService.getAllOptionButtons();
 	}
 
 	copiarChavePix() {

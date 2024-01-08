@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { OptionalButtonsModel } from 'src/app/models/OptionalButtons.model';
 
 @Injectable()
 export class OptionalButtonsService {
-	private optionalButtons$ = new Subject<OptionalButtonsModel>;
+	optionalButtons: OptionalButtonsModel;
 
 	constructor() {
-		const optionalButtons = new OptionalButtonsModel().build(
+		this.optionalButtons = new OptionalButtonsModel();
+	}
+
+	getAllOptionButtons() {
+		this.optionalButtons.build(
 			true,
 			'be9d3572-5689-48d1-b2c8-13d105c32686',
 			true,
@@ -17,11 +20,6 @@ export class OptionalButtonsService {
 			true,
 			false
 		);
-
-		this.optionalButtons$.next(optionalButtons);
-	}
-
-	getAllOptionButtons() {
-		return this.optionalButtons$.asObservable();
+		return this.optionalButtons;
 	}
 }
