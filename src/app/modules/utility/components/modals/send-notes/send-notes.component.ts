@@ -2,102 +2,99 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { EmailModel } from 'src/app/models/Email.model';
-import { EmailService } from 'src/app/services/email.service';
-import { ToastrCustomizedService } from 'src/app/services/toastr-customized.service';
+import { ToastrCustomizedService } from '../../../services/toastr-customized.service';
+import { EmailStore } from '../../../stores/email.store';
 
 @Component({
-  selector: 'app-send-notes',
-  templateUrl: './send-notes.component.html',
-  styleUrls: ['./send-notes.component.scss'],
+	selector: 'app-send-notes',
+	templateUrl: './send-notes.component.html',
+	styleUrls: ['./send-notes.component.scss'],
 })
 export class SendNotesComponent {
-  defaultEmail!: string;
-  noteForm!: FormGroup;
+	defaultEmail!: string;
+	noteForm!: FormGroup;
 
-  emailDestinoValido: boolean;
-  assuntoValido: boolean;
-  conteudoValido: boolean;
+	emailDestinoValido: boolean;
+	assuntoValido: boolean;
+	conteudoValido: boolean;
 
-  constructor(
-    public modalRef: BsModalRef,
-    private formBuilder: FormBuilder,
-    private emailService: EmailService,
-    private toastrCustomizedService: ToastrCustomizedService
-  ) {
-    this.noteForm = this.formBuilder.group({
-      emailDestino: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-        ],
-      ],
-      assunto: ['', Validators.required],
-      conteudo: ['', Validators.required],
-    });
+	constructor(
+		public modalRef: BsModalRef,
+		private formBuilder: FormBuilder,
+		private emailStore: EmailStore,
+		private toastrCustomizedService: ToastrCustomizedService
+	) {
+		this.noteForm = this.formBuilder.group({
+			emailDestino: [
+				'',
+				[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')],
+			],
+			assunto: ['', Validators.required],
+			conteudo: ['', Validators.required],
+		});
 
-    this.emailDestinoValido = true;
-    this.assuntoValido = true;
-    this.conteudoValido = true;
-  }
+		this.emailDestinoValido = true;
+		this.assuntoValido = true;
+		this.conteudoValido = true;
+	}
 
-  enviar() {
-    this.validate();
-    if (this.emailDestinoValido && this.assuntoValido && this.conteudoValido) {
-      const email = new EmailModel();
-      email.emCopia = this.defaultEmail;
-      email.remetente = this.defaultEmail;
-      email.para = this.noteForm.get('emailDestino')?.value;
-      email.assunto = this.noteForm.get('assunto')?.value;
-      email.conteudo = this.noteForm.get('conteudo')?.value;
+	enviar() {
+		this.validate();
+		if (this.emailDestinoValido && this.assuntoValido && this.conteudoValido) {
+			const email = new EmailModel();
+			email.emCopia = this.defaultEmail;
+			email.remetente = this.defaultEmail;
+			email.para = this.noteForm.get('emailDestino')?.value;
+			email.assunto = this.noteForm.get('assunto')?.value;
+			email.conteudo = this.noteForm.get('conteudo')?.value;
 
-      this.emailService.sendNote(email);
-      this.toastrCustomizedService.sucesso('Nota enviada com sucesso');
-      this.modalRef.hide();
-    } else {
-      alert('Há campos obrigatórios que não foram preenchidos!');
-    }
-  }
+			this.emailStore.sendNote(email);
+			this.toastrCustomizedService.sucesso('Nota enviada com sucesso');
+			this.modalRef.hide();
+		} else {
+			alert('Há campos obrigatórios que não foram preenchidos!');
+		}
+	}
 
-  cancelar() {
-    this.modalRef.hide();
-  }
+	cancelar() {
+		this.modalRef.hide();
+	}
 
-  validate() {
-    this.validateEmailDestino();
-    this.validateAssunto();
-    this.validateConteudo();
-  }
+	validate() {
+		this.validateEmailDestino();
+		this.validateAssunto();
+		this.validateConteudo();
+	}
 
-  validateEmailDestino() {
-    this.emailDestinoValido = false;
+	validateEmailDestino() {
+		this.emailDestinoValido = false;
 
-    this.emailDestinoValido =
-      this.noteForm.controls['emailDestino'].touched &&
-      !!this.noteForm.controls['emailDestino'].errors === false;
+		this.emailDestinoValido =
+			this.noteForm.controls['emailDestino'].touched &&
+			!!this.noteForm.controls['emailDestino'].errors === false;
 
-    if (this.noteForm.get('emailDestino')?.value.trim() === '') {
-      this.emailDestinoValido = false;
-    }
-  }
+		if (this.noteForm.get('emailDestino')?.value.trim() === '') {
+			this.emailDestinoValido = false;
+		}
+	}
 
-  validateAssunto() {
-    this.assuntoValido =
-      this.noteForm.controls['assunto'].touched &&
-      !!this.noteForm.controls['assunto'].errors === false;
+	validateAssunto() {
+		this.assuntoValido =
+			this.noteForm.controls['assunto'].touched &&
+			!!this.noteForm.controls['assunto'].errors === false;
 
-    if (this.noteForm.get('assunto')?.value.trim() === '') {
-      this.assuntoValido = false;
-    }
-  }
+		if (this.noteForm.get('assunto')?.value.trim() === '') {
+			this.assuntoValido = false;
+		}
+	}
 
-  validateConteudo() {
-    this.conteudoValido =
-      this.noteForm.controls['conteudo'].touched &&
-      !!this.noteForm.controls['conteudo'].errors === false;
+	validateConteudo() {
+		this.conteudoValido =
+			this.noteForm.controls['conteudo'].touched &&
+			!!this.noteForm.controls['conteudo'].errors === false;
 
-    if (this.noteForm.get('conteudo')?.value.trim() === '') {
-      this.conteudoValido = false;
-    }
-  }
+		if (this.noteForm.get('conteudo')?.value.trim() === '') {
+			this.conteudoValido = false;
+		}
+	}
 }

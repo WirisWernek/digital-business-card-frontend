@@ -4,13 +4,13 @@ import { OptionalButtonsComponent } from './components/optional-buttons/optional
 
 const routes: Routes = [
 	{
-		path: "",
-		component: OptionalButtonsComponent
-	}
+		path: '',
+		component: OptionalButtonsComponent,
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class UtilityRoutingModule { }
+export class UtilityRoutingModule {}
