@@ -1,0 +1,33 @@
+.button {
+	height: 10rem;
+	width: 10rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	background-color: #2e34403d;
+	border-radius: 25px;
+	cursor: pointer;
+	font-size: small;
+	font-weight: lighter;
+}
+
+h3{
+	font-weight: 300;
+}
+
+img{
+	width: 3rem;
+}
+
+.row {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+@media (min-width: 700px) {
+	.button {
+		height: 11rem;
+		width: 11rem;
+	}
+}

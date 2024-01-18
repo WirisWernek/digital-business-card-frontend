@@ -1,20 +1,22 @@
 .profile-image {
-  border-radius: 100% !important ;
-  height: 10rem;
-  margin-top: -5rem;
+	border-radius: 100% !important ;
+	height: 10rem;
+	margin-top: -5rem;
 }
 
-.subtitle {
-  font-size: 130%;
-  margin: auto;
-  width: 25ch;
-  white-space: nowrap;
-  overflow: hidden;
+h1 {
+	font-size: x-large;
+	font-weight: 400;
+}
+
+span {
+	font-size: medium;
+	font-weight: 200;
 }
 
 @media (min-width: 700px) {
-  .profile-image {
-    height: 18rem;
-    margin-top: -9rem;
-  }
+	.profile-image {
+		height: 18rem;
+		margin-top: -9rem;
+	}
 }
