@@ -39,7 +39,7 @@ export class SendReviewComponent {
 			this.sendReviewStore.salvar(review);
 			this.modalRef.hide();
 		} else {
-			alert('Há campos obrigatórios que não foram preenchidos!');
+			return;
 		}
 	}
 
