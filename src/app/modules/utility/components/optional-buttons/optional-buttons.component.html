@@ -1,40 +1,42 @@
-<section class="row justify-content-center text-center ">
-	<h3 class="col">Utilidades</h3>
-</section>
+<div class="d-flex justify-content-center align-items-center flex-column">
+	<section class="row justify-content-center text-center ">
+		<h3 class="col">Utilidades</h3>
+	</section>
 
-<section class="row justify-content-center align-items-center gap-2 text-center mt-2">
-	<div *ngIf="optionalButtons.pixEnable" class="button" (click)="copiarChavePix()" (keydown)="copiarChavePix()" tabindex="">
-		<img src="/assets/icons/icons/pix.png" loading="eager" alt="Ícone de links sociais">
-		<span>Chave Pix</span>
-	</div>
+	<section class="row justify-content-center align-items-center gap-2 text-center mt-2">
+		<div *ngIf="optionalButtons.pixEnable" class="button" (click)="copiarChavePix()" (keydown)="copiarChavePix()" tabindex="">
+			<img src="/assets/icons/icons/pix.png" loading="eager" alt="Ícone de links sociais">
+			<span>Chave Pix</span>
+		</div>
 
-	<div *ngIf="optionalButtons.avaliacaoEnable" class="button" (click)="openModalReview()" (keydown)="openModalReview()" tabindex="">
-		<img src="/assets/icons/icons/review.png" loading="eager" alt="Ícone de links sociais">
-		<span>Me Avalie</span>
-	</div>
+		<div *ngIf="optionalButtons.avaliacaoEnable" class="button" (click)="openModalReview()" (keydown)="openModalReview()" tabindex="">
+			<img src="/assets/icons/icons/review.png" loading="eager" alt="Ícone de links sociais">
+			<span>Me Avalie</span>
+		</div>
 
-	<div *ngIf="optionalButtons.newsletterEnable" class="button" (click)="openModalNewsletter()" (keydown)="openModalNewsletter()" tabindex="">
-		<img src="/assets/icons/icons/newsletter.png" loading="eager" alt="Ícone de links sociais">
-		<span>Newsletter</span>
-	</div>
+		<div *ngIf="optionalButtons.newsletterEnable" class="button" (click)="openModalNewsletter()" (keydown)="openModalNewsletter()" tabindex="">
+			<img src="/assets/icons/icons/newsletter.png" loading="eager" alt="Ícone de links sociais">
+			<span>Newsletter</span>
+		</div>
 
-	<div *ngIf="optionalButtons.emailRapidoEnable" class="button" (click)="openModalEmail()" (keydown)="openModalEmail()" tabindex="">
-		<img src="/assets/icons/icons/mail.png" loading="eager" alt="Ícone de links sociais">
-		<span>Enviar Email</span>
-	</div>
+		<div *ngIf="optionalButtons.emailRapidoEnable" class="button" (click)="openModalEmail()" (keydown)="openModalEmail()" tabindex="">
+			<img src="/assets/icons/icons/mail.png" loading="eager" alt="Ícone de links sociais">
+			<span>Enviar Email</span>
+		</div>
 
-	<div *ngIf="optionalButtons.anotacaoEnable" class="button" (click)="openModalAnotacao()" (keydown)="openModalAnotacao()" tabindex="">
-		<img src="/assets/icons/icons/note.png" loading="eager" alt="Ícone de links sociais">
-		<span>Enviar Anotação</span>
-	</div>
-	
-	<div *ngIf="optionalButtons.compartilharEnable" class="button" (click)="compartilhar()" (keydown)="compartilhar()" tabindex="">
-		<img src="/assets/icons/icons/youtube.png" loading="eager" alt="Ícone de links sociais">
-		<span>Compartilhar</span>
-	</div>
+		<div *ngIf="optionalButtons.anotacaoEnable" class="button" (click)="openModalAnotacao()" (keydown)="openModalAnotacao()" tabindex="">
+			<img src="/assets/icons/icons/note.png" loading="eager" alt="Ícone de links sociais">
+			<span>Enviar Anotação</span>
+		</div>
+		
+		<div *ngIf="optionalButtons.compartilharEnable" class="button" (click)="compartilhar()" (keydown)="compartilhar()" tabindex="">
+			<img src="/assets/icons/icons/youtube.png" loading="eager" alt="Ícone de links sociais">
+			<span>Compartilhar</span>
+		</div>
 
-	<div class="button" routerLink="/" tabindex="">
-		<img src="/assets/icons/icons/back.png" loading="eager" alt="Ícone de links sociais">
-		<span>Voltar</span>
-	</div>
-</section>
+		<div class="button" routerLink="/" tabindex="">
+			<img src="/assets/icons/icons/back.png" loading="eager" alt="Ícone de links sociais">
+			<span>Voltar</span>
+		</div>
+	</section>
+</div>
