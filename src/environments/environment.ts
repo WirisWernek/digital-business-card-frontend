@@ -1,6 +1,10 @@
 export const environment = {
   PRODUCTION: true,
   API_URL: 'https://api-wiriswernek.vercel.app',
+  YOUTUBE_CHANNEL_ID: 'UCgIr3r7LRYvaDj099vNbPww',
+  YOUTUBE_MAX_RESULTS: 3,
+  DEV_TO_USERNAME: 'nataliedeweerd',
+  DEV_TO_MAX_RESULTS: 3,
   FIREBASECONFIG: {
     projectId: 'digital-business-card-1785c',
     appId: '1:147856403111:web:4160147464967dae8b4982',
