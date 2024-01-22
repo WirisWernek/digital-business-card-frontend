@@ -1,26 +1,16 @@
-# Digital Visit Card ![version](https://img.shields.io/badge/version-1.5.0-blue)
+# Digital Visit Card
 
-## Sobre
+<div align="center">
+	<img width="800" src="https://i.ibb.co/NFZ4fMj/Cart-o-Digital-V2.png">
+</div>
+
+## 🔥 Sobre
 
 A ideia do projeto é ser uma pagina simples e de fácil navegação que possa ser acessada principalmente por smartphones, e que traga as principais informações de uma pessoa, sendo elas desde de dados de contato, currículo ou redes sociais.
 
 Atualmente o projeto se encontra publicado na [Vercel](https://dbc-wiriswernek.vercel.app), e usa como base o Angular com Typescript e Bootstrap 5.
 
-Segue abaixo uma prévia da aplicação.
-
-<h2 align="center">Preview Mobile</h2>
-<div align="center">
-	<img width="400" src="./docs/images/mobile.png">
-</div>
-
-<h2 align="center">Preview Desktop</h2>
-<div align="center">
-	<img width="800" src="./docs/images/macbook.png">
-</div>
-
-
-
-## Como executar esta aplicação?
+## 🔨 Como executar esta aplicação?
 
 ### Padrão
 Para rodar a aplicação voce deve:
@@ -38,8 +28,9 @@ Por ser uma aplicação focada em mobile para uma melhor experiência é recomen
 
 Também é possível utilizar a extensão [Mobile Simulator](https://chrome.google.com/webstore/detail/mobile-simulator-responsi/ckejmhbmlajgoklhgbapkiccekfoccmk) disponível para Google Chrome e Firefox.
 
-## Versões dos recursos da aplicação
-- angular/cli <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-16.2.11-blue"/>
-- node <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-16.20.1-blue"/>
-- typescript <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-5.1.6-blue"/>
-- bootstrap <img style="vertical-align: middle;" src="https://img.shields.io/badge/version-5.3.2-blue"/>
+## 📦 Tecnologias usadas
+- ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+- ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+- ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+- ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+- ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
