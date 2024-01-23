@@ -17,7 +17,7 @@ export class HeaderComponent {
     this.ultimaAcao = '1';
     this.nome = 'Wiris Wernek';
     this.subtitle = 'Full Stack Web Developer';
-    this.imagemPerfil = '../../../../assets/images/profile-image.jpeg';
+    this.imagemPerfil = '/assets/images/profile.png';
   }
 
   changeOption() {
