@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { EmailModel } from 'src/app/models/Email.model';
 import { ToastrCustomizedService } from '../../../services/toastr-customized.service';
-import { EmailStore } from '../../../stores/email.store';
+import { AnotacaoStore } from '../../../stores/anotacao.store';
+
 
 @Component({
 	selector: 'app-send-notes',
@@ -21,7 +22,7 @@ export class SendNotesComponent {
 	constructor(
 		public modalRef: BsModalRef,
 		private formBuilder: FormBuilder,
-		private emailStore: EmailStore,
+		private anotacaoStore: AnotacaoStore,
 		private toastrCustomizedService: ToastrCustomizedService
 	) {
 		this.noteForm = this.formBuilder.group({
@@ -42,13 +43,17 @@ export class SendNotesComponent {
 		this.validate();
 		if (this.emailDestinoValido && this.assuntoValido && this.conteudoValido) {
 			const email = new EmailModel();
-			email.emCopia = this.defaultEmail;
-			email.remetente = this.defaultEmail;
-			email.para = this.noteForm.get('emailDestino')?.value;
-			email.assunto = this.noteForm.get('assunto')?.value;
-			email.conteudo = this.noteForm.get('conteudo')?.value;
-
-			this.emailStore.sendNote(email);
+			email.build(
+				'anotacoes',
+				this.noteForm.get('conteudo')?.value,
+				this.noteForm.get('assunto')?.value,
+				this.noteForm.get('emailDestino')?.value,
+				this.defaultEmail,
+				this.defaultEmail,
+				'Nota By Digital Business Card',
+				'Agradecemos seu interesse em nossos serviços!'
+			);
+			this.anotacaoStore.salvar(email);
 			this.toastrCustomizedService.sucesso('Nota enviada com sucesso');
 			this.modalRef.hide();
 		} else {

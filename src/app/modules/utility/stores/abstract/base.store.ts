@@ -1,32 +1,34 @@
-import { Inject, Injector } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injector } from '@angular/core';
 import Dexie from 'dexie';
-import { BaseModel } from 'src/app/models/Base.model';
+import { BaseModelService } from 'src/app/models/base/BaseModelService';
+import { environment } from 'src/environments/environment';
 import { ConnectionService } from '../../services/connection.service';
-import { FirebaseAbstract } from './firebase.abstract';
 
-
-export abstract class FirebaseIndexedDBAbstract<T extends BaseModel> extends FirebaseAbstract<T> {
+export abstract class BaseStore<T extends BaseModelService> {
 	private database: Dexie;
 	private table: Dexie.Table<T, number>;
+	protected http: HttpClient;
 	protected connectionService: ConnectionService;
+	protected baseUrl: string
 
-	constructor(protected injector: Injector, @Inject(String) protected nomeTabela: string) {
-		super(nomeTabela);
+	constructor(
+		protected injector: Injector,
+		protected nomeTabela: string,
+		protected apiUrl: string
+	) {
+		this.baseUrl = environment.API_URL+ '/' + apiUrl;
+		this.http = this.injector.get(HttpClient);
 		this.connectionService = this.injector.get(ConnectionService);
 		this.database = this.criarDatabase();
 		this.table = this.database.table(this.nomeTabela);
 		this.registrarEventos(this.connectionService);
-		console.log(nomeTabela);
 	}
 
 	private criarDatabase() {
 		const database = new Dexie('database');
-		database.version(3).stores({
-			newsletter: '++id',
-			reviews: '++id',
-			anotacoes: '++id',
-			emails: '++id',
-		});
+		database.version(3).stores(environment.INDEXEDDB_TABLES);
+
 		return database;
 	}
 
@@ -42,16 +44,21 @@ export abstract class FirebaseIndexedDBAbstract<T extends BaseModel> extends Fir
 	}
 
 	salvar(modelo: T) {
+		console.log(JSON.stringify(modelo))
 		if (this.connectionService.isOnline) {
-			this.salvarFirebase(modelo);
+			this.salvarAPI(modelo);
 		} else {
 			this.salvarIndexedDb(modelo);
 		}
 	}
 
-	private salvarFirebase(modelo: T) {
-		console.log('Mandando para o Firebase.');
-		this.insert(modelo);
+	private salvarAPI(modelo: T) {
+		console.log('Mandando para a API.');
+		this.http.post(this.baseUrl, modelo).subscribe({
+			next: (item) => console.info(item),
+			error: (err) => console.error(`Erro ao salvar ${this.nomeTabela}`, err),
+			complete: () => alert(`${this.nomeTabela} salvo com sucesso!`),
+		});
 	}
 
 	private salvarIndexedDb(modelo: T) {
@@ -66,14 +73,17 @@ export abstract class FirebaseIndexedDBAbstract<T extends BaseModel> extends Fir
 
 	private async enviarItensdoIndexedDb() {
 		const allmodelos: T[] = await this.table.toArray();
-		console.log(allmodelos.entries);
 
 		allmodelos.forEach((item) => {
-			this.salvarFirebase(item);
+			this.salvarAPI(item);
 
 			this.table.delete(item.id).then(() => {
 				console.log(`${this.nomeTabela} com ID ${item?.id} deletado do IndexedDb`);
 			});
 		});
+	}
+
+	listar() {
+		return this.http.get<T[]>(this.apiUrl);
 	}
 }
