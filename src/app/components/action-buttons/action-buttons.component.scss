@@ -1,19 +1,21 @@
 ul {
   list-style-type: none;
+  padding: 0;
 }
 
 .telefone,
 .email {
-  height: 16vw;
+  height: 5rem;
 }
 
 .whatsapp,
 .download {
-  height: 15vw;
+  height: 4.5rem;
 }
 
 .actionButtons {
   align-items: center !important;
+  gap: 1rem;
 }
 
 @media (min-width: 700px) {
@@ -22,16 +24,24 @@ ul {
   }
   .telefone,
   .email {
-    height: 9vw;
+    height: 8rem;
   }
 
   .whatsapp,
   .download {
-    height: 8vw;
+    height: 7.5rem;
   }
 
   .actionButtons {
     margin: 0 auto 0 auto;
     width: 50%;
   }
+
+  hr{
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+  }
+
+ 
 }

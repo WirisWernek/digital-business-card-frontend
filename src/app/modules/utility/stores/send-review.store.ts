@@ -1,10 +1,10 @@
 import { Injectable, Injector } from '@angular/core';
 import { ReviewModel } from 'src/app/models/Review.model';
-import { FirebaseIndexedDBAbstract } from './abstract/firebase-indexedb.abstract';
+import { BaseStore } from './abstract/base.store';
 
 @Injectable()
-export class SendReviewStore extends FirebaseIndexedDBAbstract<ReviewModel> {
+export class SendReviewStore extends BaseStore<ReviewModel> {
 	constructor(protected injectable: Injector) {
-		super(injectable, 'reviews');
+		super(injectable, 'reviews', 'firebase');
 	}
 }

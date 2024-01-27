@@ -42,13 +42,17 @@ export class SendEmailComponent {
 		this.validate();
 		if (this.emailCopiaValido && this.assuntoValido && this.conteudoValido) {
 			const email = new EmailModel();
-			email.para = this.defaultEmail;
-			email.remetente = this.emailForm.get('emailCopia')?.value;
-			email.emCopia = this.emailForm.get('emailCopia')?.value;
-			email.assunto = this.emailForm.get('assunto')?.value;
-			email.conteudo = this.emailForm.get('conteudo')?.value;
-
-			this.emailStore.sendEmailRapido(email);
+			email.build(
+				'emails',
+				this.emailForm.get('conteudo')?.value,
+				this.emailForm.get('assunto')?.value,
+				this.defaultEmail,
+				this.emailForm.get('emailCopia')?.value ,
+				this.emailForm.get('emailCopia')?.value,
+				'Contato By Digital Business Card',
+				'Aguardamos ansiosos por vosso retorno!'
+			);
+			this.emailStore.salvar(email);
 			this.toastrCustomizedService.sucesso('Email enviado com sucesso');
 			this.modalRef.hide();
 		} else {

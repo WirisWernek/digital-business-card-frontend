@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { Analytics } from '@angular/fire/analytics';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,6 @@ import { Analytics } from '@angular/fire/analytics';
 export class AppComponent {
   title = 'Cartão de Visitas Virtual';
   typeVisible: string;
-  private analytics: Analytics = inject(Analytics);
 
   constructor() {
     this.typeVisible = '1';

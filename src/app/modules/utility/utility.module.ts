@@ -13,7 +13,6 @@ import { ConnectionService } from './services/connection.service';
 import { OptionalButtonsService } from './services/optional-buttons.service';
 import { ToastrCustomizedService } from './services/toastr-customized.service';
 import { AnotacaoStore } from './stores/anotacao.store';
-import { EmailRapidoStore } from './stores/email-rapido.store';
 import { EmailStore } from './stores/email.store';
 import { SendReviewStore } from './stores/send-review.store';
 import { SubscribeNewsletterStore } from './stores/subscribe-newsletter.store';
@@ -37,7 +36,6 @@ import { UtilityRoutingModule } from './utility-routing.module';
 	],
 	providers: [
 		AnotacaoStore,
-		EmailRapidoStore,
 		EmailStore,
 		SendReviewStore,
 		SubscribeNewsletterStore,

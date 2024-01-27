@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+
 import { ReviewModel } from 'src/app/models/Review.model';
 import { SendReviewStore } from '../../../stores/send-review.store';
 
@@ -35,11 +36,10 @@ export class SendReviewComponent {
 			const comentario = this.reviewForm.get('comentario')?.value;
 
 			review.build(avaliacao, comentario);
-
 			this.sendReviewStore.salvar(review);
 			this.modalRef.hide();
 		} else {
-			alert('Há campos obrigatórios que não foram preenchidos!');
+			return;
 		}
 	}
 

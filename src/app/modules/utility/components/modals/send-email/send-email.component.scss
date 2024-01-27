@@ -8,6 +8,10 @@
   cursor: pointer;
 }
 
+.text-danger{
+	font-size: small;
+}
+
 @media (min-width: 700px) {
   .button {
     height: 4vw;
@@ -15,6 +19,14 @@
   }
 }
 
-input, textarea{
-	margin-bottom: 0.5rem;
+input, textarea, .form-label{
+	margin-bottom: 0.1rem;
+}
+
+.btn{
+	height: 2.6rem;
+}
+
+input, textarea, label, .btn, .modal-title{
+	font-weight: 300;
 }
