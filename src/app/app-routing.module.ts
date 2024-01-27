@@ -23,11 +23,11 @@ const routes: Routes = [
 		path: 'about',
 		loadChildren: () => import('./modules/about/about.module').then((m) => m.AboutModule),
 	},
-	{
-		path: 'updates',
-		component: ActionButtonsComponent,
-		loadChildren: () => import('./modules/updates/updates.module').then((m) => m.UpdatesModule),
-	},
+	// {
+	// 	path: 'updates',
+	// 	component: ActionButtonsComponent,
+	// 	loadChildren: () => import('./modules/updates/updates.module').then((m) => m.UpdatesModule),
+	// },
 	{
 		path: '',
 		component: ActionButtonsComponent,
