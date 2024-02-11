@@ -36,24 +36,26 @@
 			<img src="/assets/icons/icons/new-contact.png" loading="eager" alt="Ícone de Salvar Contato">
 			<span class="">Salvar Contato</span>
 		</a>
-
-		<a class="button" href="/assets/files/Wiris_Rafael_Januario_Wernek.vcf" target="_blank">
+		<a class="button" [href]="changeContactLink('whatsapp')" target="_blank">
 			<img src="/assets/icons/icons/whatsapp-simple.png" loading="eager" alt="Ícone do WhatsApp">
 			<span class="">WhatsApp</span>
 		</a>
-		<a class="button" href="/assets/files/Wiris_Rafael_Januario_Wernek.vcf" target="_blank">
+		<a class="button" [href]="changeContactLink('email')" target="_blank">
 			<img src="/assets/icons/icons/mail.png" loading="eager" alt="Ícone do Email">
 			<span class="">Email</span>
 		</a>
-		<a class="button" href="/assets/files/Wiris_Rafael_Januario_Wernek.vcf" target="_blank">
+		<a class="button" [href]="changeContactLink('telefone')" target="_blank">
 			<img src="/assets/icons/icons/phone.png" loading="eager" alt="Ícone do Telefone">
 			<span class="">Telefone</span>
 		</a>
-		<a class="button" href="/assets/files/Wiris_Rafael_Januario_Wernek.vcf" target="_blank">
+		<a class="button" download="cartao-digital-wiriswernek.pdf" [href]="changeContactLink('download')" target="_blank">
 			<img src="/assets/icons/icons/visit-card.png" loading="eager" alt="Ícone de Baixar Cartão">
 			<span class="">Baixar Cartão</span>
 		</a>
-
+		<a class="button" download="curriculo-wiriswernek.pdf" [href]="changeContactLink('curriculo')" target="_blank">
+			<img src="/assets/icons/icons/visit-card.png" loading="eager" alt="Ícone de Baixar Cartão">
+			<span class="">Baixar Currículo</span>
+		</a>
 		<a class="button" routerLink="/">
 			<img src="/assets/icons/icons/back.png" loading="eager" alt="Ícone de Voltar">
 			<span class="">Voltar</span>

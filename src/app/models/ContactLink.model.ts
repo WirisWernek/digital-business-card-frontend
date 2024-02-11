@@ -6,6 +6,7 @@ export class ContactLinkModel extends BaseModel {
   telefone: string;
   localizacao: string;
   download: string;
+  curriculo: string;
 
   constructor() {
     super();
@@ -14,6 +15,7 @@ export class ContactLinkModel extends BaseModel {
     this.telefone = '';
     this.localizacao = '';
     this.download = '';
+	this.curriculo = '';
   }
 
   buid(
@@ -21,13 +23,15 @@ export class ContactLinkModel extends BaseModel {
     email: string,
     telefone: string,
     localizacao: string,
-    download: string
+    download: string,
+	curriculo: string
   ) {
     this.whatsapp = whatsapp;
     this.email = email;
     this.telefone = telefone;
     this.localizacao = localizacao;
     this.download = download;
+	this.curriculo = curriculo;
     return this;
   }
 }

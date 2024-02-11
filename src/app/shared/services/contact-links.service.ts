@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ContactLinkModel } from 'src/app/models/ContactLink.model';
 
-
 @Injectable({
 	providedIn: 'root',
 })
@@ -10,24 +9,24 @@ export class ContactLinksService {
 	WHATSAPP_NUMBER = '';
 	EMAIL = '';
 	DOWNLOAD = '';
+	CURRICULO = '';
 	MESSAGE_DEFAULT = '';
 
 	contactLink: ContactLinkModel;
 
 	constructor() {
 		this.contactLink = new ContactLinkModel();
-	}
-
-	getAllContactLinks() {
 		this.EMAIL = 'wiriswernek@gmail.com';
 		this.PHONE_NUMBER = '+5528999814672';
 		this.WHATSAPP_NUMBER = '5528999814672';
+		this.CURRICULO = '/assets/files/curriculo.pdf';
 		this.DOWNLOAD = '../../../assets/files/cartao-de-visitas-interativo.pdf';
 		this.MESSAGE_DEFAULT =
 			'Olá Wiris, estou entrando em contato pelo seu Cartão de Visita Virtual e gostaria de conhecer mais do seu trabalho, podemos conversar sobre?';
+	}
 
+	getAllContactLinks() {
 		this.loadLinks();
-
 		return this.contactLink;
 	}
 
@@ -36,6 +35,7 @@ export class ContactLinksService {
 		this.carregarLinkEmail();
 		this.carregarLinkTelefone();
 		this.carregarLinkDownload();
+		this.carregarLinkCurriculo();
 	}
 
 	carregarLinkWhatsApp() {
@@ -70,5 +70,9 @@ export class ContactLinksService {
 
 	carregarLinkDownload() {
 		this.contactLink.download = this.DOWNLOAD;
+	}
+
+	carregarLinkCurriculo() {
+		this.contactLink.curriculo = this.CURRICULO;
 	}
 }
