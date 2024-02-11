@@ -1,19 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Cartão de Visitas Virtual';
-  typeVisible: string;
+	title = 'Cartão de Visitas Virtual';
 
-  constructor() {
-    this.typeVisible = '1';
-  }
-
-  reciverResponse(response: string) {
-    this.typeVisible = response;
-  }
+	constructor() {}
 }
