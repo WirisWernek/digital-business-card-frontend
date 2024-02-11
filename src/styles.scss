@@ -19,6 +19,7 @@ a {
 }
 
 h3 {
+	font-size: 1.5rem;
 	font-weight: 300;
 }
 
@@ -42,8 +43,14 @@ textarea {
 	cursor: pointer;
 	font-size: small;
 	font-weight: lighter;
+	transition: all 0.3s;
 	img {
 		width: 3rem;
+	}
+	&:hover, &:focus {
+		background-color: #ffffff88;
+		transform: scale(1.025);
+		filter: blur(0);
 	}
 }
 

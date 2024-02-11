@@ -1,47 +1,58 @@
 ul {
-  list-style-type: none;
-  padding: 0;
+	list-style-type: none;
+	padding: 0;
+}
+li {
+	transition: all 0.3s;
+	&:hover,
+	&:focus {
+		transform: scale(1.025);
+		filter: blur(0);
+	}
 }
 
-.telefone,
 .email {
-  height: 5rem;
+	height: 5rem;
+}
+
+.telefone {
+	height: 4.2rem;
 }
 
 .whatsapp,
 .download {
-  height: 4.5rem;
+	height: 4.5rem;
 }
 
 .actionButtons {
-  align-items: center !important;
-  gap: 1rem;
+	align-items: center !important;
+	gap: 1rem;
 }
 
 @media (min-width: 700px) {
-  ul {
-    padding: 0;
-  }
-  .telefone,
-  .email {
-    height: 8rem;
-  }
+	ul {
+		padding: 0;
+	}
 
-  .whatsapp,
-  .download {
-    height: 7.5rem;
-  }
+	.email {
+		height: 8rem;
+	}
+	.telefone {
+		height: 7rem;
+	}
+	.whatsapp,
+	.download {
+		height: 7.5rem;
+	}
 
-  .actionButtons {
-    margin: 0 auto 0 auto;
-    width: 50%;
-  }
+	.actionButtons {
+		margin: 0 auto 0 auto;
+		width: 50%;
+	}
 
-  hr{
-	margin-left: auto;
-	margin-right: auto;
-	width: 37rem;
-  }
-
- 
+	hr {
+		margin-left: auto;
+		margin-right: auto;
+		width: 37rem;
+	}
 }
