@@ -1,37 +1,72 @@
 <div class="d-flex justify-content-center align-items-center flex-column">
 	<section class="row justify-content-center text-center">
-		<h3 class="col">Atualizações</h3>
+		<h2 class="col">Atualizações</h2>
 	</section>
 
-	<section class="row d-flex flex-column justify-content-center align-items-center gap-3 text-center mt-2">
+	<section
+		class="row d-flex flex-column justify-content-center align-items-center gap-3 text-center mt-2"
+	>
 		<ng-container *ngIf="artigos$ | async as artigos">
-			<h3 class="col">Artigos</h3>
-			<a class="col-11" *ngFor="let item of artigos" href="{{item.url}}" target="_blank">
-				<div class="card w-100" target="_blank">
-					<img [src]="item.cover_image" class="card-img-top" alt="..." />
-					<div class="card-body">
-						<h5 class="card-title">{{item.title}}</h5>
-						<p class="card-text">{{item.description}}</p>
+			<ng-container *ngIf="artigos.length > 0">
+				<h3 class="col mt-5">Últimos Artigos</h3>
+				<a class="col-11" *ngFor="let item of artigos" href="{{ item.url }}" target="_blank">
+					<div class="card w-100" target="_blank">
+						<img [src]="item.cover_image" class="card-img-top" alt="..." />
+						<div class="card-body">
+							<h5 class="card-title">{{ item.title }}</h5>
+							<p class="card-text">{{ item.description }}</p>
+						</div>
 					</div>
-				</div>
-			</a>
+				</a>
+			</ng-container>
 		</ng-container>
 
 		<ng-container *ngIf="videos$ | async as videos">
-			<h3 class="col">Últimos Vídeos</h3>
-			<a class="col-11" *ngFor="let item of videos.items" href="https://dbc-wiriswernek.vercel.app" target="_blank">
-				<div class="card w-100" target="_blank">
-					<img [src]="item.snippet.thumbnails.high.url" class="card-img-top" alt="..." />
-					<div class="card-body">
-						<h5 class="card-title">{{item.snippet.title}}</h5>
-						<p class="card-text">{{item.snippet.description}}</p>
+			<ng-container *ngIf="videos.items.length > 0">
+				<h3 class="col mt-5">Últimos Vídeos</h3>
+				<a class="col-11" *ngFor="let item of videos.items">
+					<div class="card w-100" target="_blank">
+						<img [src]="item.snippet.thumbnails.high.url" class="card-img-top" alt="..." />
+						<div class="card-body">
+							<h5 class="card-title">{{ item.snippet.title }}</h5>
+							<p class="card-text">{{ item.snippet.description }}</p>
+						</div>
 					</div>
-				</div>
-			</a>
+				</a>
+			</ng-container>
+		</ng-container>
+
+		<ng-container *ngIf="githubEvents$ | async as eventos">
+			<ng-container *ngIf="eventos.length > 0">
+				<h3 class="col mt-5">Últimos Commits</h3>
+				<a class="col-11" *ngFor="let item of eventos">
+					<div class="card w-100" target="_blank">
+						<div class="card-body">
+							<h5 class="card-title text-start">
+								{{ item.repo.name.split('/')[1] | uppercase }}
+							</h5>
+							<p class="card-text text-start mb-0">
+								<b>Quando:</b> {{ item.created_at | date : 'dd/mm/yyyy' }}
+							</p>
+							<p
+								class="card-text text-start mt-1"
+								*ngFor="let commit of item.payload.commits"
+							>
+								<b>Commit:</b> {{ commit.message }}
+							</p>
+						</div>
+					</div>
+				</a>
+			</ng-container>
 		</ng-container>
 
 		<a class="button" routerLink="/">
-			<img class="icon-back" src="/assets/icons/icons/back.png" loading="eager" alt="Ícone de links sociais">
+			<img
+				class="icon-back"
+				src="/assets/icons/icons/back.png"
+				loading="eager"
+				alt="Ícone de links sociais"
+			/>
 			<span class="">Voltar</span>
 		</a>
 	</section>
