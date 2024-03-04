@@ -6,10 +6,10 @@
 	<section
 		class="row d-flex flex-column justify-content-center align-items-center gap-3 text-center mt-2"
 	>
-		@if (artigos$ | async; as artigos) {
-			@if (artigos.length > 0) {
-				<h3 class="col mt-5">Últimos Artigos</h3>
-				<a class="col-11" *ngFor="let item of artigos" href="{{ item.url }}" target="_blank">
+		@if (artigos$ | async; as artigos) { @if (artigos.length > 0) {
+			<h3 class="col mt-5">Últimos Artigos</h3>
+			@for (item of artigos; track $index) {
+				<a class="col-11" href="{{ item.url }}" target="_blank">
 					<div class="card w-100" target="_blank">
 						<img [src]="item.cover_image" class="card-img-top" alt="..." />
 						<div class="card-body">
@@ -18,13 +18,12 @@
 						</div>
 					</div>
 				</a>
-			}
-		}	
-
-		@if (videos$ | async; as videos) {
-			@if(videos.items.length > 0){
-				<h3 class="col mt-5">Últimos Vídeos</h3>
-				<a class="col-11" *ngFor="let item of videos.items">
+		} } } 
+		
+		@if (videos$ | async; as videos) { @if(videos.items.length > 0){
+			<h3 class="col mt-5">Últimos Vídeos</h3>
+			@for (item of videos.items; track $index) {
+				<a class="col-11">
 					<div class="card w-100" target="_blank">
 						<img [src]="item.snippet.thumbnails.high.url" class="card-img-top" alt="..." />
 						<div class="card-body">
@@ -33,14 +32,13 @@
 						</div>
 					</div>
 				</a>
-			}
-		}
-
-		@if (githubEvents$ | async; as eventos) {
-			@if(eventos.length > 0){
-				<h3 class="col mt-5">Últimos Commits</h3>
-				<a class="col-11" *ngFor="let item of eventos">
-					<div class="card w-100" target="_blank">
+		} } } 
+		
+		@if (githubEvents$ | async; as eventos) { @if(eventos.length > 0){
+			<h3 class="col mt-5">Últimos Commits</h3>
+			@for (item of eventos; track $index) {
+				<div class="col-11">
+					<div class="card w-100">
 						<div class="card-body">
 							<h5 class="card-title text-start">
 								{{ item.repo.name.split('/')[1] | uppercase }}
@@ -48,17 +46,13 @@
 							<p class="card-text text-start mb-0">
 								<b>Quando:</b> {{ item.created_at | date : 'dd/mm/yyyy' }}
 							</p>
-							<p
-								class="card-text text-start mt-1"
-								*ngFor="let commit of item.payload.commits"
-							>
-								<b>Commit:</b> {{ commit.message }}
-							</p>
+							@for (commit of item.payload.commits; track $index) {
+							<p class="card-text text-start mt-1"><b>Commit:</b> {{ commit.message }}</p>
+							}
 						</div>
 					</div>
-				</a>
-			}
-		}
+				</div>
+		} } }
 
 		<a class="button" routerLink="/">
 			<img
