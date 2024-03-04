@@ -6,16 +6,16 @@
 		<label for="nomeFormInput" class="form-label">Nome</label>
 		<input [ngClass]=" nomeValido ? 'form-control' : 'form-control is-invalid'" formControlName="nome"
 			type="text" id="nomeFormInput" placeholder="Bruno(a)" (blur)="validateNome()">
-		<ng-container *ngIf="!nomeValido">
+		@if(!nomeValido){
 			<label for="nomeFormInput" class="form-label text-danger">O nome é obrigatório!</label>
-		</ng-container>
+		}
 	</div>
 	<div class="mb-3">
 		<label for="emailFormInput" class="form-label">Seu Email</label>
 		<input type="email" [ngClass]=" emailValido ? 'form-control' : 'form-control is-invalid'" id="emailFormInput" placeholder="name@example.com" formControlName="email" (blur)="validate()">
-		<ng-container *ngIf="!emailValido">
+		@if(!emailValido){
 			<label for="reviewFormRating" class="form-label text-danger">O email é obrigatório!</label>
-		</ng-container>
+		}
 	</div>
 </form>
 <div class="modal-footer d-flex justify-content-center">

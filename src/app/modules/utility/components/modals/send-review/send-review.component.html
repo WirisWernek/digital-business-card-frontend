@@ -4,11 +4,10 @@
 <form [formGroup]="reviewForm" class="modal-body">
 	<div class="mb-3 text-center">
 		<rating id="reviewFormRating" formControlName="avaliacao" [max]="5" (ngModelChange)="validate()"></rating>
-		<ng-container *ngIf="!avaliacaoValida">
+		@if (!avaliacaoValida) {
 			<br>
-			<label for="reviewFormRating" class="form-label text-danger">É necessário selecionar ao menos uma estrela
-				para avaliar!</label>
-		</ng-container>
+			<label for="reviewFormRating" class="form-label text-danger">É necessário selecionar ao menos uma estrela para avaliar!</label>
+		}
 	</div>
 
 	<div class="mb-3">

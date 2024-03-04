@@ -41,8 +41,6 @@ export class SubscribeNewsletterComponent {
 			newsletter.build(nome, email);
 			this.newsletterStore.salvar(newsletter);
 			this.modalRef.hide();
-		} else {
-			alert('Há campos obrigatórios que não foram preenchidos!');
 		}
 	}
 
