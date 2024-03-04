@@ -6,26 +6,26 @@
 		<label for="emailFormInput" class="form-label">Email de Cópia</label>
 		<input [ngClass]=" emailCopiaValido ? 'form-control' : 'form-control is-invalid'" formControlName="emailCopia"
 			type="email" id="emailFormInput" placeholder="name@example.com" (blur)="validateEmailCopia()">
-		<ng-container *ngIf="!emailCopiaValido">
+		@if (!emailCopiaValido) {
 			<label for="emailFormInput" class="form-label text-danger">É necessário informar o email de cópia!</label>
-		</ng-container>
+		}
 	</div>
 	<div class="mb-3">
 		<label for="assuntoFormInput" class="form-label">Assunto</label>
 		<input [ngClass]=" assuntoValido ? 'form-control' : 'form-control is-invalid'" formControlName="assunto"
 			type="text" id="assuntoFormInput" placeholder="Gostaria de um orçamento" (blur)="validateAssunto()">
-		<ng-container *ngIf="!assuntoValido">
+		@if (!assuntoValido) {
 			<label for="assuntoFormInput" class="form-label text-danger">É necessário informar o assunto do email!</label>
-		</ng-container>
+		}
 	</div>
 	<div class="mb-3">
 		<label for="conteudoFormInput" class="form-label">Conteúdo do Email</label>
 		<textarea [ngClass]=" conteudoValido ? 'form-control' : 'form-control is-invalid'" formControlName="conteudo"
 			id="conteudoFormInput" rows="3" (blur)="validateConteudo()"></textarea>
-		<ng-container *ngIf="!conteudoValido">
+		@if (!conteudoValido) {
 			<label for="conteudoFormInput" class="form-label text-danger">É necessário informar o conteúdo do
 				email!</label>
-		</ng-container>
+		}
 	</div>
 </form>
 <div class="modal-footer d-flex justify-content-center">

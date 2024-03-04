@@ -56,8 +56,6 @@ export class SendNotesComponent {
 			this.anotacaoStore.salvar(email);
 			this.toastrCustomizedService.sucesso('Nota enviada com sucesso');
 			this.modalRef.hide();
-		} else {
-			alert('Há campos obrigatórios que não foram preenchidos!');
 		}
 	}
 

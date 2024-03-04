@@ -55,8 +55,6 @@ export class SendEmailComponent {
 			this.emailStore.salvar(email);
 			this.toastrCustomizedService.sucesso('Email enviado com sucesso');
 			this.modalRef.hide();
-		} else {
-			alert('Há campos obrigatórios que não foram preenchidos!');
 		}
 	}
 

@@ -4,7 +4,7 @@
 	</section>
 
 	<section class="row d-flex flex-column justify-content-center align-items-center gap-3 text-center mt-2">
-		<ng-container *ngIf="artigos$ | async as artigos">
+		@if (artigos$ | async; as artigos) {
 			<h3 class="col">Artigos</h3>
 			<a class="col-11" *ngFor="let item of artigos" href="{{item.url}}" target="_blank">
 				<div class="card w-100" target="_blank">
@@ -15,9 +15,9 @@
 					</div>
 				</div>
 			</a>
-		</ng-container>
+		}
 
-		<ng-container *ngIf="videos$ | async as videos">
+		@if (videos$ | async; as videos) {
 			<h3 class="col">Últimos Vídeos</h3>
 			<a class="col-11" *ngFor="let item of videos.items" href="https://dbc-wiriswernek.vercel.app" target="_blank">
 				<div class="card w-100" target="_blank">
@@ -28,7 +28,7 @@
 					</div>
 				</div>
 			</a>
-		</ng-container>
+		}
 
 		<a class="button" routerLink="/">
 			<img class="icon-back" src="/assets/icons/icons/back.png" loading="eager" alt="Ícone de links sociais">
