@@ -88,10 +88,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "visit-card:build:production"
+              "buildTarget": "visit-card:build:production"
             },
             "development": {
-              "browserTarget": "visit-card:build:development"
+              "buildTarget": "visit-card:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,7 +99,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "visit-card:build"
+            "buildTarget": "visit-card:build"
           }
         },
         "test": {
