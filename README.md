@@ -15,7 +15,7 @@ Atualmente o projeto se encontra publicado na [Vercel](https://dbc-wiriswernek.v
 ### Padrão
 Para rodar a aplicação voce deve:
 - Primeiro clonar este repositório
-- Navegar para a pasta ` digital-business-card`
+- Navegar para a pasta `digital-business-card`
 - Executar o comando `npm i` para instalar as dependências do projeto
 - Executar o comando `ng s` ou `ng serve` para rodar a aplicação
 - Abrir em seu navegador de preferência a URL `http://localhost:4200/` para acessar a aplicação
