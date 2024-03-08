@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ClipboardService } from 'ngx-clipboard';
 import { OptionalButtonsModel } from 'src/app/models/OptionalButtons.model';
 import { OptionalButtonsService } from '../../services/optional-buttons.service';
 import { ToastrCustomizedService } from '../../services/toastr-customized.service';
@@ -27,13 +26,10 @@ export class OptionalButtonsComponent implements OnInit {
 
 	constructor(
 		private optionalButtonsService: OptionalButtonsService,
-		private clipboardService: ClipboardService,
 		private modalService: BsModalService,
 		private toastrCustomizedService: ToastrCustomizedService
 	) {
 		this.optionalButtons = new OptionalButtonsModel();
-		
-
 	}
 
 	ngOnInit(): void {
@@ -41,8 +37,9 @@ export class OptionalButtonsComponent implements OnInit {
 	}
 
 	copiarChavePix() {
-		this.clipboardService.copy(this.optionalButtons.chavePix);
-		this.toastrCustomizedService.sucesso('Chave Copiada com Sucesso');
+		navigator.clipboard.writeText(this.optionalButtons.chavePix).then(() => {
+			this.toastrCustomizedService.sucesso('Chave Copiada com Sucesso');
+		});
 	}
 
 	openModalNewsletter() {

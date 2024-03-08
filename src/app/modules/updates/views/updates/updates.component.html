@@ -1,37 +1,66 @@
 <div class="d-flex justify-content-center align-items-center flex-column">
 	<section class="row justify-content-center text-center">
-		<h3 class="col">Atualizações</h3>
+		<h2 class="col">Atualizações</h2>
 	</section>
 
-	<section class="row d-flex flex-column justify-content-center align-items-center gap-3 text-center mt-2">
-		@if (artigos$ | async; as artigos) {
-			<h3 class="col">Artigos</h3>
-			<a class="col-11" *ngFor="let item of artigos" href="{{item.url}}" target="_blank">
-				<div class="card w-100" target="_blank">
-					<img [src]="item.cover_image" class="card-img-top" alt="..." />
-					<div class="card-body">
-						<h5 class="card-title">{{item.title}}</h5>
-						<p class="card-text">{{item.description}}</p>
+	<section
+		class="row d-flex flex-column justify-content-center align-items-center gap-3 text-center mt-2"
+	>
+		@if (artigos$ | async; as artigos) { @if (artigos.length > 0) {
+			<h3 class="col mt-5">Últimos Artigos</h3>
+			@for (item of artigos; track $index) {
+				<a class="col-11" href="{{ item.url }}" target="_blank">
+					<div class="card w-100" target="_blank">
+						<img [src]="item.cover_image" class="card-img-top" alt="..." />
+						<div class="card-body">
+							<h5 class="card-title">{{ item.title }}</h5>
+							<p class="card-text">{{ item.description }}</p>
+						</div>
+					</div>
+				</a>
+		} } } 
+		
+		@if (videos$ | async; as videos) { @if(videos.items.length > 0){
+			<h3 class="col mt-5">Últimos Vídeos</h3>
+			@for (item of videos.items; track $index) {
+				<a class="col-11">
+					<div class="card w-100" target="_blank">
+						<img [src]="item.snippet.thumbnails.high.url" class="card-img-top" alt="..." />
+						<div class="card-body">
+							<h5 class="card-title">{{ item.snippet.title }}</h5>
+							<p class="card-text">{{ item.snippet.description }}</p>
+						</div>
+					</div>
+				</a>
+		} } } 
+		
+		@if (githubEvents$ | async; as eventos) { @if(eventos.length > 0){
+			<h3 class="col mt-5">Últimos Commits</h3>
+			@for (item of eventos; track $index) {
+				<div class="col-11">
+					<div class="card w-100">
+						<div class="card-body">
+							<h5 class="card-title text-start">
+								{{ item.repo.name.split('/')[1] | uppercase }}
+							</h5>
+							<p class="card-text text-start mb-1">
+								<b>Quando:</b> {{ item.created_at | date : 'dd/mm/yyyy' }}
+							</p>
+							@for (commit of item.payload.commits; track $index) {
+							<p class="card-text text-start mt-0 mb-0"><b>Commit:</b> {{ commit.message }}</p>
+							}
+						</div>
 					</div>
 				</div>
-			</a>
-		}
-
-		@if (videos$ | async; as videos) {
-			<h3 class="col">Últimos Vídeos</h3>
-			<a class="col-11" *ngFor="let item of videos.items" href="https://dbc-wiriswernek.vercel.app" target="_blank">
-				<div class="card w-100" target="_blank">
-					<img [src]="item.snippet.thumbnails.high.url" class="card-img-top" alt="..." />
-					<div class="card-body">
-						<h5 class="card-title">{{item.snippet.title}}</h5>
-						<p class="card-text">{{item.snippet.description}}</p>
-					</div>
-				</div>
-			</a>
-		}
+		} } }
 
 		<a class="button" routerLink="/">
-			<img class="icon-back" src="/assets/icons/icons/back.png" loading="eager" alt="Ícone de links sociais">
+			<img
+				class="icon-back"
+				src="/assets/icons/icons/back.png"
+				loading="eager"
+				alt="Ícone de links sociais"
+			/>
 			<span class="">Voltar</span>
 		</a>
 	</section>
