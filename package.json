@@ -1,70 +1,70 @@
 {
-	"name": "visit-card",
-	"version": "2.0.0",
-	"scripts": {
-		"ng": "ng",
-		"start": "ng serve",
-		"build": "ng build",
-		"build-prd": "ng build --configuration production",
-		"watch": "ng build --watch --configuration development",
-		"test": "ng test",
-		"lint": "ng lint",
-		"prepare": "husky",
-		"commit": "cz"
-	},
-	"private": true,
-	"dependencies": {
-		"@angular/animations": "^17.2.3",
-		"@angular/common": "^17.2.3",
-		"@angular/compiler": "^17.2.3",
-		"@angular/core": "^17.2.3",
-		"@angular/forms": "^17.2.3",
-		"@angular/platform-browser": "^17.2.3",
-		"@angular/platform-browser-dynamic": "^17.2.3",
-		"@angular/router": "^17.2.3",
-		"@angular/service-worker": "^17.2.3",
-		"bootstrap": "^5.3.2",
-		"dexie": "^3.2.4",
-		"ngx-bootstrap": "^12.0.0",
-		"ngx-toastr": "^18.0.0",
-		"rxjs": "~7.8.0",
-		"tslib": "^2.3.0",
-		"zone.js": "~0.14.4"
-	},
-	"devDependencies": {
-		"@angular-devkit/build-angular": "^17.2.2",
-		"@angular-eslint/builder": "17.2.1",
-		"@angular-eslint/eslint-plugin": "17.2.1",
-		"@angular-eslint/eslint-plugin-template": "17.2.1",
-		"@angular-eslint/schematics": "17.2.1",
-		"@angular-eslint/template-parser": "17.2.1",
-		"@angular/cli": "^17.2.2",
-		"@angular/compiler-cli": "^17.2.3",
-		"@commitlint/cli": "^19.0.3",
-		"@commitlint/config-conventional": "^19.0.3",
-		"@types/jasmine": "~4.3.0",
-		"@typescript-eslint/eslint-plugin": "^6.10.0",
-		"@typescript-eslint/parser": "^6.10.0",
-		"commitizen": "^4.3.0",
-		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.53.0",
-		"husky": "^9.0.11",
-		"jasmine-core": "~4.6.0",
-		"karma": "~6.4.0",
-		"karma-chrome-launcher": "~3.2.0",
-		"karma-coverage": "~2.2.0",
-		"karma-jasmine": "~5.1.0",
-		"karma-jasmine-html-reporter": "~2.1.0",
-		"typescript": "~5.3.3"
-	},
-	"config": {
-		"commitizen": {
-			"path": "./node_modules/cz-conventional-changelog"
-		},
-		"husky": {
-			"hooks": {
-				"prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
-			}
-		}
-	}
+  "name": "visit-card",
+  "version": "2.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "build-prd": "ng build --configuration production",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint",
+    "prepare": "husky",
+    "commit": "cz"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.0.6",
+    "@angular/common": "^18.0.6",
+    "@angular/compiler": "^18.0.6",
+    "@angular/core": "^18.0.6",
+    "@angular/forms": "^18.0.6",
+    "@angular/platform-browser": "^18.0.6",
+    "@angular/platform-browser-dynamic": "^18.0.6",
+    "@angular/router": "^18.0.6",
+    "@angular/service-worker": "^18.0.6",
+    "bootstrap": "^5.3.2",
+    "dexie": "^3.2.4",
+    "ngx-bootstrap": "^12.0.0",
+    "ngx-toastr": "^19.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.0.7",
+    "@angular-eslint/builder": "18.1.0",
+    "@angular-eslint/eslint-plugin": "18.1.0",
+    "@angular-eslint/eslint-plugin-template": "18.1.0",
+    "@angular-eslint/schematics": "18.1.0",
+    "@angular-eslint/template-parser": "18.1.0",
+    "@angular/cli": "^18.0.7",
+    "@angular/compiler-cli": "^18.0.6",
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
+    "@types/jasmine": "~4.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.4.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "husky": {
+      "hooks": {
+        "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+      }
+    }
+  }
 }

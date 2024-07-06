@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,32 +11,25 @@ import { ActionButtonsComponent } from './components/action-buttons/action-butto
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    ActionButtonsComponent,
-    FooterComponent,
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      timeOut: 10000,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true,
-      progressBar: true,
-      progressAnimation: 'decreasing',
-    }),
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      registrationStrategy: 'registerWhenStable:30000',
-    }),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        ActionButtonsComponent,
+        FooterComponent,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        CommonModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            timeOut: 10000,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true,
+            progressBar: true,
+            progressAnimation: 'decreasing',
+        }),
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000',
+        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
