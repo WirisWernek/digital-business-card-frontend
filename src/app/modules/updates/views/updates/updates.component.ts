@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { AsyncPipe, DatePipe, UpperCasePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Observable, map } from 'rxjs';
 import { ArticleModel } from '../../models/article.model';
 import { GithubEventModel } from '../../models/github-event.model';
@@ -11,8 +13,11 @@ import { GithubStore } from './../../stores/github.store';
 	selector: 'app-updates',
 	templateUrl: './updates.component.html',
 	styleUrls: ['./updates.component.scss'],
+	standalone: true,
+	imports: [RouterLink, AsyncPipe, UpperCasePipe, DatePipe],
+	providers: [ArticleStore, GithubStore, YoutubeStore],
 })
-export class UpdatesComponent {
+export class UpdatesComponent implements OnInit {
 	videos$!: Observable<ListVideosModel>;
 	artigos$!: Observable<ArticleModel[]>;
 	githubEvents$!: Observable<GithubEventModel[]>;

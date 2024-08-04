@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: true,
 })
 export class HeaderComponent {
   nome: string;
@@ -13,6 +14,6 @@ export class HeaderComponent {
   constructor() {
     this.nome = 'Wiris Wernek';
     this.subtitle = 'Full Stack Web Developer';
-    this.imagemPerfil = '/assets/images/profile.png';
+    this.imagemPerfil = 'assets/images/profile.png';
   }
 }

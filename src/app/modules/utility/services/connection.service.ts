@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class ConnectionService {
 	private trocaConexao$ = new Subject<boolean>();
 

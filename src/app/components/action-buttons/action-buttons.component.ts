@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactLinksService } from 'src/app/shared/services/contact-links.service';
 import { ContactLinkModel } from '../../models/ContactLink.model';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-	selector: 'app-action-buttons',
-	templateUrl: './action-buttons.component.html',
-	styleUrls: ['./action-buttons.component.scss'],
+    selector: 'app-action-buttons',
+    templateUrl: './action-buttons.component.html',
+    styleUrls: ['./action-buttons.component.scss'],
+    standalone: true,
+    imports: [RouterOutlet],
 })
 export class ActionButtonsComponent implements OnInit {
 	contactLinks: ContactLinkModel = new ContactLinkModel();

@@ -1,15 +1,24 @@
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+	FormBuilder,
+	FormGroup,
+	FormsModule,
+	ReactiveFormsModule,
+	Validators,
+} from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { EmailModel } from 'src/app/models/Email.model';
 import { ToastrCustomizedService } from '../../../services/toastr-customized.service';
 import { AnotacaoStore } from '../../../stores/anotacao.store';
 
-
 @Component({
 	selector: 'app-send-notes',
 	templateUrl: './send-notes.component.html',
 	styleUrls: ['./send-notes.component.scss'],
+	standalone: true,
+	imports: [FormsModule, ReactiveFormsModule, NgClass],
+	providers: [AnotacaoStore, ToastrCustomizedService],
 })
 export class SendNotesComponent {
 	defaultEmail!: string;
@@ -28,7 +37,10 @@ export class SendNotesComponent {
 		this.noteForm = this.formBuilder.group({
 			emailDestino: [
 				'',
-				[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')],
+				[
+					Validators.required,
+					Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+				],
 			],
 			assunto: ['', Validators.required],
 			conteudo: ['', Validators.required],

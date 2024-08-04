@@ -19,7 +19,7 @@ export class ContactLinksService {
 		this.EMAIL = 'wiriswernek@gmail.com';
 		this.PHONE_NUMBER = '+5528999814672';
 		this.WHATSAPP_NUMBER = '5528999814672';
-		this.CURRICULO = '/assets/files/curriculo.pdf';
+		this.CURRICULO = 'assets/files/curriculo.pdf';
 		this.DOWNLOAD = '../../../assets/files/cartao-de-visitas-interativo.pdf';
 		this.MESSAGE_DEFAULT =
 			'Olá Wiris, estou entrando em contato pelo seu Cartão de Visita Virtual e gostaria de conhecer mais do seu trabalho, podemos conversar sobre?';

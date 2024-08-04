@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { OptionalButtonsModel } from 'src/app/models/OptionalButtons.model';
+import { ConnectionService } from '../../services/connection.service';
 import { OptionalButtonsService } from '../../services/optional-buttons.service';
 import { ToastrCustomizedService } from '../../services/toastr-customized.service';
+import { AnotacaoStore } from '../../stores/anotacao.store';
+import { EmailStore } from '../../stores/email.store';
+import { SendReviewStore } from '../../stores/send-review.store';
+import { SubscribeNewsletterStore } from '../../stores/subscribe-newsletter.store';
 import { SendEmailComponent } from '../modals/send-email/send-email.component';
 import { SendNotesComponent } from '../modals/send-notes/send-notes.component';
 import { SendReviewComponent } from '../modals/send-review/send-review.component';
@@ -12,6 +18,24 @@ import { SubscribeNewsletterComponent } from '../modals/subscribe-newsletter/sub
 	selector: 'app-optional-buttons',
 	templateUrl: './optional-buttons.component.html',
 	styleUrls: ['./optional-buttons.component.scss'],
+	standalone: true,
+	imports: [
+		RouterLink,
+		SendEmailComponent,
+		SendNotesComponent,
+		SendReviewComponent,
+		SubscribeNewsletterComponent,
+	],
+	providers: [
+		AnotacaoStore,
+		EmailStore,
+		SendReviewStore,
+		SubscribeNewsletterStore,
+		ToastrCustomizedService,
+		OptionalButtonsService,
+		ConnectionService,
+		BsModalService,
+	],
 })
 export class OptionalButtonsComponent implements OnInit {
 	optionalButtons: OptionalButtonsModel;

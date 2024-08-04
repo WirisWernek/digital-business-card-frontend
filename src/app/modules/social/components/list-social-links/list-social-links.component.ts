@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactLinkModel } from 'src/app/models/ContactLink.model';
 import { ContactLinksService } from 'src/app/shared/services/contact-links.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
-	selector: 'app-list-social-links',
-	templateUrl: './list-social-links.component.html',
-	styleUrls: ['./list-social-links.component.scss'],
+    selector: 'app-list-social-links',
+    templateUrl: './list-social-links.component.html',
+    styleUrls: ['./list-social-links.component.scss'],
+    standalone: true,
+    imports: [RouterLink],
 })
 export class ListSocialLinksComponent implements OnInit {
 	contactLinks: ContactLinkModel = new ContactLinkModel();

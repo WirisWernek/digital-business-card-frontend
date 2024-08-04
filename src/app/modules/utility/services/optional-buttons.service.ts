@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { OptionalButtonsModel } from 'src/app/models/OptionalButtons.model';
 
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class OptionalButtonsService {
 	optionalButtons: OptionalButtonsModel;
 

@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+	FormBuilder,
+	FormGroup,
+	FormsModule,
+	ReactiveFormsModule,
+	Validators,
+} from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
+import { RatingModule } from 'ngx-bootstrap/rating';
 import { ReviewModel } from 'src/app/models/Review.model';
 import { SendReviewStore } from '../../../stores/send-review.store';
 
@@ -9,6 +16,9 @@ import { SendReviewStore } from '../../../stores/send-review.store';
 	selector: 'app-send-review',
 	templateUrl: './send-review.component.html',
 	styleUrls: ['./send-review.component.scss'],
+	standalone: true,
+	imports: [FormsModule, ReactiveFormsModule, RatingModule],
+	providers: [SendReviewStore],
 })
 export class SendReviewComponent {
 	reviewForm!: FormGroup;

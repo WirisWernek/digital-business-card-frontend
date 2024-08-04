@@ -55,7 +55,7 @@ export abstract class IndexedDBAbstract<T extends BaseModel> {
 		this.http.post(this.apiUrl, modelo).subscribe({
 			next: (item) => console.info(item),
 			error: (err) => console.error(`Erro ao salvar ${this.nomeTabela}`, err),
-			complete: () => alert(`${this.nomeTabela} salvo com sucesso!`),
+			complete: () => console.log(`${this.nomeTabela} salvo com sucesso!`),
 		});
 	}
 
